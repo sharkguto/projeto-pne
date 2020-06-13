@@ -35,13 +35,10 @@ interface SignUpFormData {
   password: string;
 }
 
-const SingUp = () => {
+const NewTrip = () => {
 
-  const phoneInputRef = useRef<TextInput>(null);
-  const cpfInputRef = useRef<TextInput>(null);
-  const nascimentoInputRef = useRef<TextInput>(null);
-  const apelidoInputRef = useRef<TextInput>(null);
-  const passwordInputRef = useRef<TextInput>(null);
+  const destinoInputRef = useRef<TextInput>(null);
+ 
   const formRef = useRef<FormHandles>(null);
 
   const navigation = useNavigation();
@@ -97,91 +94,36 @@ const SingUp = () => {
               <TouchableOpacity onPress={handleNavigateBack}>
                 <Icon name="arrow-left" size={25} color="#000" />
               </TouchableOpacity>
-              <Title>Nova Conta</Title>
+              <Title>Nova Viagem</Title>
               <Text></Text>
             </View>
           <Container>
-            {/* <Image source={logoImg} /> */}
-
-            
-
+        
             <Form ref={formRef} onSubmit={handleSignUp}>
               <Input
                 autoCapitalize="words"
                 keyboardType="default"
-                name="name"
-                icon="user"
-                placeholder="Seu Nome"
+                name="origem"
+                icon="map-pin"
+                placeholder="Origem"
                 returnKeyType="next"
                 onSubmitEditing={() => {
-                  phoneInputRef.current?.focus();
+                  destinoInputRef.current?.focus();
                 }}
               />
               <Input
-                ref={phoneInputRef}
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="phone-pad"
-                name="phone"
-                icon="phone"
-                placeholder="Seu Celular"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  cpfInputRef.current?.focus();
-                }}
-              />
-              <Input
-                ref={cpfInputRef}
+                ref={destinoInputRef}
                 autoCorrect={false}
                 autoCapitalize="none"
                 keyboardType="default"
-                name="cpf"
-                icon="file-text"
-                placeholder="Seu CPF"
+                name="destino"
+                icon="map-pin"
+                placeholder="Destino"
                 returnKeyType="next"
-                onSubmitEditing={() => {
-                  nascimentoInputRef.current?.focus();
-                }}
-              />
-              <Input
-                ref={nascimentoInputRef}
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="default"
-                name="nascimento"
-                icon="calendar"
-                placeholder="Sua Data de Nascimento"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  apelidoInputRef.current?.focus();
-                }}
-              />
-              <Input
-                ref={apelidoInputRef}
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="default"
-                name="apelido"
-                icon="user"
-                placeholder="Seu Apelido"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  passwordInputRef.current?.focus();
-                }}
-              />
-
-              <Input
-                secureTextEntry
-                name="password"
-                icon="lock"
-                placeholder="Sua senha"
-                returnKeyType="send"
-                ref={passwordInputRef}
                 onSubmitEditing={() => {
                   formRef.current?.submitForm();
                 }}
               />
-
               <Button
                 onPress={() => {
                   formRef.current?.submitForm();
@@ -210,4 +152,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default SingUp;
+export default NewTrip;

@@ -116,6 +116,8 @@ const Servico = () => {
                   latitudeDelta: 0.014,
                   longitudeDelta: 0.014,
                 }}
+                showsUserLocation
+                loadingEnabled
               >
                 <Marker
                   onPress={() => handleNavigateToDetail(1)}

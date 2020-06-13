@@ -32,8 +32,8 @@ import { FormHandles } from "@unform/core";
 import * as Yup from 'yup';
 
 interface SignInFormData {
-	email: string;
-	password: string;
+  email: string;
+  password: string;
 }
 
 const Home = () => {
@@ -42,63 +42,59 @@ const Home = () => {
 
   const navigation = useNavigation();
 
- // const { signIn } = useAuth();
+  // const { signIn } = useAuth();
   // const handleSignIn = useCallback(
-	// 	async (data: SignInFormData) => {
-	// 		try {
-	// 			formRef.current?.setErrors({});
+  // 	async (data: SignInFormData) => {
+  // 		try {
+  // 			formRef.current?.setErrors({});
 
-	// 			const schema = Yup.object().shape({
-	// 				email: Yup.string()
-	// 					.required('Email is required')
-	// 					.email('Type a valid email'),
-	// 				password: Yup.string().required('Password is required'),
-	// 			});
+  // 			const schema = Yup.object().shape({
+  // 				email: Yup.string()
+  // 					.required('Email is required')
+  // 					.email('Type a valid email'),
+  // 				password: Yup.string().required('Password is required'),
+  // 			});
 
-	// 			await schema.validate(data, {
-	// 				abortEarly: false,
+  // 			await schema.validate(data, {
+  // 				abortEarly: false,
   //       });
-        
+
   //      				// await signIn({
-	// 			// 	email: data.email,
-	// 			// 	password: data.password,
-	// 			// });
-	// 		} catch (err) {
-	// 			if (err instanceof Yup.ValidationError) {
-	// 				const errors = getValidationErrors(err);
-	// 				formRef.current?.setErrors(errors);
-	// 			}
+  // 			// 	email: data.email,
+  // 			// 	password: data.password,
+  // 			// });
+  // 		} catch (err) {
+  // 			if (err instanceof Yup.ValidationError) {
+  // 				const errors = getValidationErrors(err);
+  // 				formRef.current?.setErrors(errors);
+  // 			}
 
-	// 			Alert.alert(
-	// 				'Authentication Error',
-	// 				'An error ocurred when trying to signin. Check your credentials',
-	// 			);
-	// 		}
-	// 	},
-	// 	[],
-	// );
+  // 			Alert.alert(
+  // 				'Authentication Error',
+  // 				'An error ocurred when trying to signin. Check your credentials',
+  // 			);
+  // 		}
+  // 	},
+  // 	[],
+  // );
 
-  function goNavigateHome() {
+  function goNavigateHome () {
     navigation.navigate("DashBoard");
   }
 
   return (
-    <>         
-      <KeyboardAvoidingView style={{ flex: 1 }} enabled> 
-       <ImageBackground 
-        source={require('../../assets/ccr.png')} 
-        style={styles.container}
-        imageStyle={{ width:415 , height: 896 }}
-      >
-       <ScrollView
-          keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{ flex: 1 }}
-        >  
-          <Container>    
-            <Logo/>
+    <>
+      <Logo />
+      <KeyboardAvoidingView style={{ flex: 1 }} enabled>
+        <ImageBackground
+          source={require('../../assets/ccr.png')}
+          style={styles.container}
+          imageStyle={{ width: 415, height: 896 }}
+        >
+          <Container>
             <View
-            style={styles.marginLogo}
-            ></View>    
+              style={styles.marginLogo}
+            ></View>
             <Form ref={formRef} onSubmit={goNavigateHome}>
               <Input
                 autoCorrect={false}
@@ -132,21 +128,14 @@ const Home = () => {
                 Entrar
               </Button>
             </Form>
-            <ForgotPassword
-              onPress={() => {
-                console.log("cool");
-              }}
-            >
-            </ForgotPassword>
+           
           </Container>
-        </ScrollView>
+          <Button style={styles.botaoCreate} onPress={() => navigation.navigate("SingUp")}>
+              <Icon name="log-in" size={20} color="#fff" />
+               Criar Conta
+            </Button>
         </ImageBackground>
-      </KeyboardAvoidingView>
-
-      <Button onPress={() => navigation.navigate("SingUp")}>
-        <Icon name="log-in" size={20} color="#fff" />
-        <CreateAccountButtonText> Criar Conta</CreateAccountButtonText>
-      </Button>
+      </KeyboardAvoidingView>      
     </>
   );
 };
@@ -157,7 +146,10 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   marginLogo: {
-    marginBottom:30
+    marginBottom: 30
+  },
+  botaoCreate: {
+    marginTop:50
   }
 });
 
