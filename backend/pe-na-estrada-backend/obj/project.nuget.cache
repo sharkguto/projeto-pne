@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/0uqMqPIITSMlH3lX6ny0d0iZW7BZOiU0RLlUXMELJvi2emKVpsEnADqNogUz9jkmpiTJHOIchf+PtnIVP9hrg==",
+  "success": true,
+  "projectFilePath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-backend/pe-na-estrada-backend.csproj",
+  "expectedPackageFiles": [
+    "/home/ffeber/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
