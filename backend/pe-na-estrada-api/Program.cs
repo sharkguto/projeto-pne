@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using dotenv.net;
 
 namespace pe_na_estrada_api
 {
@@ -13,6 +14,11 @@ namespace pe_na_estrada_api
     {
         public static void Main(string[] args)
         {
+            if (Environment.GetEnvironmentVariable("ENVIRONMENT") != "PRD")
+            {
+                DotEnv.Config();
+            }
+            
             CreateHostBuilder(args).Build().Run();
         }
 
