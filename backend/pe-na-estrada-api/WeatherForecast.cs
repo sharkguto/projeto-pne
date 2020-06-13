@@ -1,6 +1,6 @@
 using System;
 
-namespace pe_na_estrada_backend
+namespace pe_na_estrada_api
 {
     public class WeatherForecast
     {
