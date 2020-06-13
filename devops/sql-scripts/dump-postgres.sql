@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 12.2 (Ubuntu 12.2-4)
 
--- Started on 2020-06-13 12:06:36 -03
+-- Started on 2020-06-13 13:20:07 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,8 +22,6 @@ SET row_security = off;
 -- TOC entry 4 (class 2615 OID 2200)
 -- Name: public; Type: SCHEMA; Schema: -; Owner: pne
 --
-
-
 
 ALTER SCHEMA public OWNER TO pne;
 
@@ -594,7 +592,7 @@ INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (3, 10, 'parada
 -- Data for Name: tbl_trip; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
-INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (1, 1, '2020-06-13 14:08:14.631911+00', 'opa', 'zum', '2020-06-13 15:05:55.831198+00', '00:57:41.199287');
+INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (1, 1, '2020-06-13 14:08:14.631911+00', 'opa', 'zum', '2020-06-13 16:18:09.418046+00', '02:09:54.786135');
 
 
 --
@@ -841,7 +839,7 @@ CREATE TRIGGER tbl_point_stop_review_but AFTER INSERT OR UPDATE ON public.tbl_po
 
 
 --
--- TOC entry 2974 (class 2620 OID 16729)
+-- TOC entry 2974 (class 2620 OID 16732)
 -- Name: tbl_trip tbl_trip_but; Type: TRIGGER; Schema: public; Owner: pne
 --
 
@@ -929,7 +927,7 @@ ALTER TABLE ONLY public.tbl_truck
     ADD CONSTRAINT tbl_truck_fk FOREIGN KEY (id_user) REFERENCES public.tbl_user(id);
 
 
--- Completed on 2020-06-13 12:06:36 -03
+-- Completed on 2020-06-13 13:20:07 -03
 
 --
 -- PostgreSQL database dump complete
