@@ -9,30 +9,30 @@ using pe_na_estrada_api.BLL;
 
 namespace pe_na_estrada_api.Controllers
 {
-    [Route("user")]
-    public class UserController : Controller
+    [Route("truck")]
+    public class TruckController : Controller
     {
         [HttpGet]
         [Route("")]
-        public async Task<ActionResult<List<TblUser>>> Get([FromServices] pneContext pContext)
+        public async Task<ActionResult<List<TblTruck>>> Get([FromServices] pneContext pContext)
         {
-            return await new User().GetAll(pContext.TblUser);
+            return await new truck().GetAll(pContext.TblTruck);
         }
 
         [HttpGet]
         [Route("{id:int}")]
-        public async Task<ActionResult<TblUser>> Get([FromServices] pneContext pContext, int id)
+        public async Task<ActionResult<TblTruck>> Get([FromServices] pneContext pContext, int id)
         {
-            return await new User().Get(pContext.TblUser, id);
+            return await new truck().Get(pContext.TblTruck, id);
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<TblUser>> Post([FromServices] pneContext pContext, [FromBody]TblUser pUser)
+        public async Task<ActionResult<TblTruck>> Post([FromServices] pneContext pContext, [FromBody]TblTruck pTruck)
         {
             if (ModelState.IsValid)
             {
-                return await new User().Create(pContext.TblUser, pContext, pUser);
+                return await new truck().Create(pContext.TblTruck, pContext, pTruck);
             }
             else
             {
