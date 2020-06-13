@@ -8,6 +8,8 @@ import SingUp from "./pages/SingUp";
 import DashBoard from "./pages/DashBoard";
 import Trip from "./pages/Trip";
 import Servico from "./pages/Servico";
+import Detail from "./pages/Detail";
+import NewTrip from "./pages/NewTrip";
 
 // roteamento da aplicação
 const AppStack = createStackNavigator();
@@ -29,6 +31,8 @@ const Routes = () => {
         <AppStack.Screen name="DashBoard" component={DashBoard} />
         <AppStack.Screen name="Trip" component={Trip} />
         <AppStack.Screen name="Servico" component={Servico} />
+        <AppStack.Screen name="Detail" component={Detail} />
+        <AppStack.Screen name="NewTrip" component={NewTrip} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
