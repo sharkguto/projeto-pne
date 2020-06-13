@@ -11,7 +11,13 @@ using pe_na_estrada_api.Models;
 namespace pe_na_estrada_api.Controllers
 {
     [Route("trip-stop")]
-    public class TripStopController: GenericController<TblTrip, Trip>
+    public class TripStopController : GenericController<TblTrip, Trip>
     {
+        [HttpGet]
+        [Route("trip/{id:int}")]
+        public async Task<ActionResult<List<TblTripStop>>> GetTripStopsById([FromServices] pneContext pContext, int id)
+        {
+            return await new TripStop().GetTripStopsById(pContext.TblTripStop, id);
+        }
     }
 }
