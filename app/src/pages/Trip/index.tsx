@@ -40,10 +40,15 @@ const Trip = () => {
     <>
           <Logo></Logo>      
           <ScrollView>
-          <Container>                      
-            <View style={styles.container}>              
+          <Container>
+            <View style={styles.header}>
+              <TouchableOpacity onPress={handleNavigateBack}>
+                  <Icon name="arrow-left" size={25}  color="#000" />
+              </TouchableOpacity>            
               <Title>Viagens</Title>
+              <Text></Text>
             </View>
+            
             <Button>
              Continuar Viagem
             </Button>
@@ -53,9 +58,7 @@ const Trip = () => {
             <View style={styles.container}>              
             <Title>Histório de Viagens</Title> 
             </View>                          
-            <TouchableOpacity onPress={handleNavigateBack}>
-                <Icon name="arrow-left" size={25} color="#000" />
-            </TouchableOpacity>
+            
             <TripList></TripList>
                      
           </Container>      
@@ -70,6 +73,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingTop: 14,
     justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  header: {
+    flex: 1,
+    paddingHorizontal: 8,
+    paddingTop: 14,
+    justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center"
   },
