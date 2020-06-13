@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace pe_na_estrada_backend
+namespace pe_na_estrada_api
 {
     public class Program
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace pe_na_estrada_backend.Controllers
+namespace pe_na_estrada_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

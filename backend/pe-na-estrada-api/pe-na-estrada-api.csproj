@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>pe_na_estrada_backend</RootNamespace>
+    <RootNamespace>pe_na_estrada_api</RootNamespace>
   </PropertyGroup>
 
 

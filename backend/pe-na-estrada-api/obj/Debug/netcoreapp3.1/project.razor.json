@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-backend/pe-na-estrada-backend.csproj",
+  "FilePath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-api/pe-na-estrada-api.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20518,7 +20518,7 @@
     ],
     "CSharpLanguageVersion": 800
   },
-  "RootNamespace": "pe_na_estrada_backend",
+  "RootNamespace": "pe_na_estrada_api",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:33823",
-      "sslPort": 44338
+      "applicationUrl": "http://localhost:32926",
+      "sslPort": 44396
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "pe_na_estrada_backend": {
+    "pe_na_estrada_api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-backend/pe-na-estrada-backend.csproj",
-      "projectName": "pe-na-estrada-backend",
-      "projectPath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-backend/pe-na-estrada-backend.csproj",
+      "projectUniqueName": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-api/pe-na-estrada-api.csproj",
+      "projectName": "pe-na-estrada-api",
+      "projectPath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-api/pe-na-estrada-api.csproj",
       "packagesPath": "/home/ffeber/.nuget/packages/",
-      "outputPath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-backend/obj/",
+      "outputPath": "/home/ffeber/Documents/ccr/projeto-pne/backend/pe-na-estrada-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ffeber/.nuget/NuGet/NuGet.Config"
