@@ -43,5 +43,20 @@ namespace pe_na_estrada_api.Controllers
                 return BadRequest(ModelState);
             }
         }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<ActionResult<T1>> Update([FromServices] pneContext pContext, [FromBody]T1 pObject)
+        {
+            if (ModelState.IsValid)
+            {
+                string sPropertyName = typeof(T1).ToString().Split('.')[typeof(T1).ToString().Split('.').Length - 1];
+                return await ((GenericModel<T1>)Activator.CreateInstance(typeof(T2))).Update((DbSet<T1>)pContext.GetType().GetProperty(sPropertyName).GetValue(pContext), pContext, pObject);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
     }
 }
