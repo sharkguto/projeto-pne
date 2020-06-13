@@ -95,7 +95,10 @@ const Home = () => {
           contentContainerStyle={{ flex: 1 }}
         >  
           <Container>    
-            <Logo/>     
+            <Logo/>
+            <View
+            style={styles.marginLogo}
+            ></View>    
             <Form ref={formRef} onSubmit={goNavigateHome}>
               <Input
                 autoCorrect={false}
@@ -152,6 +155,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
+  },
+  marginLogo: {
+    marginBottom:30
   }
 });
 

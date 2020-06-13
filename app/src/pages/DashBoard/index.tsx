@@ -33,6 +33,11 @@ const DashBoard = () => {
   function handleNavigateTrip () {
     navigation.navigate("Trip");
   }
+  
+  function handleNavigateServico () {
+    navigation.navigate("Servico");
+  }
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -50,7 +55,7 @@ const DashBoard = () => {
               <Icon name="road" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Viagens</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity onPress={handleNavigateServico} style={styles.item}>
               <Icon name="tools" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Serviços Próximos</Text>
             </TouchableOpacity>
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     height: 120,
     width: 120,
-    borderRadius: 8,
+    borderRadius: 1,
     paddingHorizontal: 16,
     paddingTop: 20,
     paddingBottom: 16,
