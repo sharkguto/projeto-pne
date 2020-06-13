@@ -7,12 +7,17 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TextInput,
+  Alert,
+  ImageBackground,
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import Logo from "../../components/Logo";
+import getValidationErrors from '../../utils/getValidationErrors';
+
 import {
   Container,
   Title,
@@ -20,9 +25,16 @@ import {
   ForgotPasswordText,
   CreateAccountButton,
   CreateAccountButtonText,
+  LogoBackground,
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
+import * as Yup from 'yup';
+
+interface SignInFormData {
+	email: string;
+	password: string;
+}
 
 const Home = () => {
   const passwordInputRef = useRef<TextInput>(null);
@@ -30,28 +42,61 @@ const Home = () => {
 
   const navigation = useNavigation();
 
-  // const { signIn } = useAuth();
-  const handleSignIn = useCallback();
+ // const { signIn } = useAuth();
+  // const handleSignIn = useCallback(
+	// 	async (data: SignInFormData) => {
+	// 		try {
+	// 			formRef.current?.setErrors({});
 
-  function goNavigatePoints() {
-    navigation.navigate("Points");
+	// 			const schema = Yup.object().shape({
+	// 				email: Yup.string()
+	// 					.required('Email is required')
+	// 					.email('Type a valid email'),
+	// 				password: Yup.string().required('Password is required'),
+	// 			});
+
+	// 			await schema.validate(data, {
+	// 				abortEarly: false,
+  //       });
+        
+  //      				// await signIn({
+	// 			// 	email: data.email,
+	// 			// 	password: data.password,
+	// 			// });
+	// 		} catch (err) {
+	// 			if (err instanceof Yup.ValidationError) {
+	// 				const errors = getValidationErrors(err);
+	// 				formRef.current?.setErrors(errors);
+	// 			}
+
+	// 			Alert.alert(
+	// 				'Authentication Error',
+	// 				'An error ocurred when trying to signin. Check your credentials',
+	// 			);
+	// 		}
+	// 	},
+	// 	[],
+	// );
+
+  function goNavigateHome() {
+    navigation.navigate("DashBoard");
   }
 
   return (
-    <>
-      <KeyboardAvoidingView style={{ flex: 1 }} enabled>
-        <ScrollView
+    <>         
+      <KeyboardAvoidingView style={{ flex: 1 }} enabled> 
+       <ImageBackground 
+        source={require('../../assets/ccr.png')} 
+        style={styles.container}
+        imageStyle={{ width:415 , height: 896 }}
+      >
+       <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ flex: 1 }}
-        >
-          <Container>
-            {/* <Image source={logoImg} /> */}
-
-            <View>
-              <Title>Login</Title>
-            </View>
-
-            <Form ref={formRef} onSubmit={handleSignIn}>
+        >  
+          <Container>    
+            <Logo/>     
+            <Form ref={formRef} onSubmit={goNavigateHome}>
               <Input
                 autoCorrect={false}
                 autoCapitalize="none"
@@ -89,16 +134,16 @@ const Home = () => {
                 console.log("cool");
               }}
             >
-              <ForgotPasswordText>Forgot your password?</ForgotPasswordText>
             </ForgotPassword>
           </Container>
         </ScrollView>
+        </ImageBackground>
       </KeyboardAvoidingView>
 
-      <CreateAccountButton onPress={() => navigation.navigate("SignUp")}>
+      <Button onPress={() => navigation.navigate("SingUp")}>
         <Icon name="log-in" size={20} color="#fff" />
-        <CreateAccountButtonText>Criar Conta</CreateAccountButtonText>
-      </CreateAccountButton>
+        <CreateAccountButtonText> Criar Conta</CreateAccountButtonText>
+      </Button>
     </>
   );
 };
@@ -107,71 +152,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
-    backgroundColor: "#fcc100",
-  },
-
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  title: {
-    color: "#322153",
-    fontSize: 32,
-    fontFamily: "Roboto_400Regular",
-    maxWidth: 260,
-    marginTop: 64,
-  },
-
-  description: {
-    color: "#6C6C80",
-    fontSize: 16,
-    marginTop: 16,
-    fontFamily: "Roboto_400Regular",
-    maxWidth: 260,
-    lineHeight: 24,
-  },
-
-  footer: {},
-
-  select: {},
-
-  input: {
-    height: 60,
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    marginBottom: 8,
-    paddingHorizontal: 24,
-    fontSize: 16,
-  },
-
-  button: {
-    backgroundColor: "#ffcc00",
-    height: 60,
-    flexDirection: "row",
-    borderRadius: 10,
-    overflow: "hidden",
-    alignItems: "center",
-    marginTop: 8,
-  },
-
-  buttonIcon: {
-    height: 60,
-    width: 60,
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  buttonText: {
-    flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
-    fontFamily: "Roboto_500Medium",
-    fontSize: 16,
-  },
+  }
 });
 
 export default Home;

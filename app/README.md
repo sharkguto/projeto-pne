@@ -11,3 +11,5 @@ npm install @react-navigation/stack
 expo install react-native-maps
 expo install expo-constants
 expo install expo-location
+npm install yup
+npm install @types/yup

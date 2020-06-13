@@ -4,6 +4,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import SingUp from "./pages/SingUp";
+import DashBoard from "./pages/DashBoard";
+import Trip from "./pages/Trip";
 
 // roteamento da aplicação
 const AppStack = createStackNavigator();
@@ -21,6 +24,9 @@ const Routes = () => {
       >
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="SingUp" component={SingUp} />
+        <AppStack.Screen name="DashBoard" component={DashBoard} />
+        <AppStack.Screen name="Trip" component={Trip} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
