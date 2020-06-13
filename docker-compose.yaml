@@ -1,0 +1,15 @@
+version: '3'
+ 
+services:
+  db-postgres:
+    network_mode: host
+    build:
+      context: .
+      dockerfile: devops/postgres.dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=pne
+      - POSTGRES_PASSWORD=pne
+      - POSTGRES_DB=pne
+      - TZ=GMT
