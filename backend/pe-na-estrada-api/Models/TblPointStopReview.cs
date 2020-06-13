@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using pe_na_estrada_api.Interfaces;
 
 namespace pe_na_estrada_api
 {
-    public partial class TblPointStopReview
+    public partial class TblPointStopReview : IGenericModel
     {
         public long Id { get; set; }
         public long IdPointStop { get; set; }
