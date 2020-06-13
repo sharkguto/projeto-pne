@@ -6,7 +6,11 @@ using pe_na_estrada_api.Models;
 
 namespace pe_na_estrada_api.BLL
 {
-    public class TripStop: GenericModel<TblTripStop>
+    public class TripStop : GenericModel<TblTripStop>
     {
+        public async Task<List<TblTripStop>> GetTripStopsById(DbSet<TblTripStop> pTable, int iTripId)
+        {
+            return await pTable.Where(x => x.IdTrip == iTripId).ToListAsync();
+        }
     }
 }
