@@ -20,49 +20,133 @@ import Logo from "../../components/Logo";
 import {
   Container,
   Title,
-  TripList
+  TripList,
+  Card,
+  CardHeader,
+  CardText,
+  CardColumn
 } from "./styles";
 import Constants from "expo-constants";
+import { CardTitle } from "../Detail/styles";
 
 
 const Trip = () => {
 
   const navigation = useNavigation();
-  
-  function goNavigatePoints () {
-    navigation.navigate("Points");
+
+  function handleNavigateNewTrip () {
+    navigation.navigate("NewTrip");
   }
-  function handleNavigateBack() {
+  function handleNavigateBack () {
     navigation.goBack();
   }
 
   return (
     <>
-          <Logo></Logo>      
-          <ScrollView>
-          <Container>
-            <View style={styles.header}>
-              <TouchableOpacity onPress={handleNavigateBack}>
-                  <Icon name="arrow-left" size={25}  color="#000" />
-              </TouchableOpacity>            
-              <Title>Viagens</Title>
-              <Text></Text>
-            </View>
-            
-            <Button>
-             Continuar Viagem
+      <Logo></Logo>
+      <ScrollView>
+        <Container>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Icon name="arrow-left" size={25} color="#000" />
+            </TouchableOpacity>
+            <Title>Viagens</Title>
+            <Text></Text>
+          </View>
+
+          <Button>
+            Continuar Viagem
             </Button>
-            <Button>
-             Nova Viagem
+          <Button onPress={handleNavigateNewTrip}>
+            Nova Viagem
             </Button>
-            <View style={styles.container}>              
-            <Title>Histório de Viagens</Title> 
-            </View>                          
-            
-            <TripList></TripList>
-                     
-          </Container>      
-          </ScrollView> 
+          <View style={styles.container}>
+            <Title>Histório de Viagens</Title>
+          </View>
+
+          <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Início: 20/06/2020</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Fim: 20/06/2020</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Origem: São Paulo-SP</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Destino: Curitiba-PR</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total: 16h14m49s</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Pontos PX: 60</CardText>
+              </CardColumn>
+            </CardHeader>
+        </Card>
+
+        <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Início: 20/06/2020</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Fim: 20/06/2020</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Origem: São Paulo-SP</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Destino: Curitiba-PR</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total: 16h14m49s</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Pontos PX: 60</CardText>
+              </CardColumn>
+            </CardHeader>
+        </Card>
+
+        <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Início: 20/06/2020</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Fim: 20/06/2020</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Origem: São Paulo-SP</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Destino: Curitiba-PR</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total: 16h14m49s</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Pontos PX: 60</CardText>
+              </CardColumn>
+            </CardHeader>
+        </Card>
+
+        </Container>
+      </ScrollView>
     </>
   );
 };
@@ -84,8 +168,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center"
   },
-  
-   itemsContainer: {
+
+  itemsContainer: {
     flexDirection: "row",
     marginTop: 16,
     marginBottom: 16,
