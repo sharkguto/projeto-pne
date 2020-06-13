@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using pe_na_estrada_api.Interfaces;
 
 namespace pe_na_estrada_api
 {
-    public partial class TblUser
+    public partial class TblUser : IGenericModel
     {
         public TblUser()
         {

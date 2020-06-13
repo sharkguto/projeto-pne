@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace pe_na_estrada_api.BLL
 {
-    public class User : GenericModel<TblUser>
+    public class truck : GenericModel<TblTruck>
     {
     }
 }
