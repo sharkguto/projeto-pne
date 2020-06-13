@@ -6,7 +6,7 @@ using pe_na_estrada_api.Models;
 
 namespace pe_na_estrada_api.BLL
 {
-    public class User : GenericModel<TblUser>
+    public class TripStop: GenericModel<TblTripStop>
     {
     }
 }
