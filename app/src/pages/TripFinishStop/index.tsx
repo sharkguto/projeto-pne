@@ -9,10 +9,10 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
+  CheckBox
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import CheckBox from "@react-native-community/checkbox";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -153,28 +153,20 @@ const TripFinishStop = () => {
             </CardHeader>
           </Card>
           <View style={styles.checkboxContainer}>
-            <CheckBox
-              disabled={false}
-              value={toggleCheckBox}
-              onValueChange={() =>
-                toggleCheckBox
-                  ? setToggleCheckBox(false)
-                  : setToggleCheckBox(true)
-              }
+          <CheckBox
+              value={isSelected}
+              onValueChange={setSelection}
+              style={styles.checkbox}
             />
             <Text style={styles.label}>
               Você realizou alguma refeição durante esta parada?
             </Text>
           </View>
           <View style={styles.checkboxContainer}>
-            <CheckBox
-              disabled={false}
-              value={isSelected}
-              onValueChange={() =>
-                isSelected
-                  ? setSelection(false)
-                  : setSelection(true)
-              }
+          <CheckBox
+              value={toggleCheckBox}
+              onValueChange={setSelection}
+              style={styles.checkbox}
             />
             <Text style={styles.label}>Você descansou/cochilou/dormiu?</Text>
           </View>
@@ -240,6 +232,7 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     alignSelf: "center",
+    borderWidth: 2,
   },
   label: {
     margin: 8,
