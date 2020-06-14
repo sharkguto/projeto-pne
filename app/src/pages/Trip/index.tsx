@@ -39,8 +39,13 @@ const Trip = () => {
     navigation.navigate("NewTrip");
   
   }
+
   function handleNavigateTripDetail () {
     navigation.navigate("TripDetail");
+  }
+
+  function handleNavigateTripCurrent () {
+    navigation.navigate("TripCurrent");
   }
 
   function handleNavigateBack () {
@@ -60,9 +65,9 @@ const Trip = () => {
             <Text></Text>
           </View>
 
-          <Button>
+          <Button onPress={handleNavigateTripCurrent}>
             Continuar Viagem
-            </Button>
+          </Button>
           <Button onPress={handleNavigateNewTrip}>
             Nova Viagem
             </Button>
