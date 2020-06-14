@@ -156,7 +156,6 @@ const Servico = () => {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingHorizontal: 20 }}
           >
             <TouchableOpacity style={styles.item}
               onPress={() => handleSelectItem(1)}
@@ -265,33 +264,36 @@ const styles = StyleSheet.create({
 
   itemsContainer: {
     flexDirection: 'row',
-    paddingTop: 16,
-    paddingBottom: 16,
-    backgroundColor: "#fbd762",
+    paddingTop: 0,
+    paddingBottom: 0,
+    // backgroundColor: "#fbd762",
+    backgroundColor: "#000",
+    height:'100%',
+  },
+
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 0
   },
 
   item: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+
     backgroundColor: '#CF2A27',
-    borderWidth: 2,
-    borderColor: '#CF2A27',
+    borderWidth: 1,
+    borderColor: '#000',
     height: 90,
     width: 110,
+    marginTop:'23%',
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
     paddingBottom: 16,
-    marginRight: 8,
+    marginRight: -1,
     alignItems: 'center',
     justifyContent: 'space-between',
     textAlign: 'center',
+    
   },
 
   selectedItem: {
