@@ -21,8 +21,11 @@ so: ubuntu
 1. criar um arquivo `.env` na raiz do projeto, conforme exemplo abaixo:
 
     ```bash
-    ENVIRONMENT=DEV
-    CONNECTION_STRING=Host=localhost;Database=pne;Username=pne;Password=pne
+    ENVIRONMENT=PRD
+    POSTGRES_HOST=db-postgres
+    POSTGRES_USER=pne
+    POSTGRES_PASSWORD=pne
+    POSTGRES_DB=pne
     ```
 
 2. na pasta raiz do projeto rodar o seguinte comando.
