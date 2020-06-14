@@ -103,7 +103,7 @@ const Servico = () => {
             <TouchableOpacity onPress={handleNavigateBack}>
               <Icon name="arrow-left" size={25} color="#000" />
             </TouchableOpacity>
-            <Title>Serviços Próximos</Title>
+            <Title></Title>
             <Text></Text>
           </View>
           <View style={styles.mapContainer}>
@@ -221,8 +221,9 @@ const styles = StyleSheet.create({
 
   mapContainer: {
     flex: 1,
-    width: '100%',
-    borderRadius: 10,
+    width: '109%',
+    marginLeft:-16,
+    borderRadius: 0,
     overflow: 'hidden',
     marginTop: 16,
     maxHeight: 300,
@@ -270,9 +271,17 @@ const styles = StyleSheet.create({
   },
 
   item: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
     backgroundColor: '#CF2A27',
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: '#CF2A27',
     height: 90,
     width: 110,
     borderRadius: 1,
