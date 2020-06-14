@@ -17,6 +17,8 @@ namespace pe_na_estrada_api
 {
     public class Startup
     {
+        private const string MyAllowSpecificOrigins = "corsPNE";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,11 +29,19 @@ namespace pe_na_estrada_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+        {
+            options.AddPolicy(name: MyAllowSpecificOrigins,
+                              builder =>
+                              {
+                                  builder.WithOrigins("*").AllowAnyHeader();
+                              });
+        });
             services.AddControllers();
             services.AddDbContext<pneContext>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PNE API", Version = "v1" });
             });
         }
 
@@ -57,6 +67,8 @@ namespace pe_na_estrada_api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {
