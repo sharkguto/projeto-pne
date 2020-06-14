@@ -87,9 +87,10 @@ const TripFinishStop = () => {
     [navigation]
   );
 
-  function handleNavigatePoints() {
-    navigation.navigate("TripPoints");
+  function handleNavigateTripCurrent() {
+    navigation.navigate("TripCurrent");
   }
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -133,7 +134,7 @@ esta parada?</Text>
             />
             <Text style={styles.label}>Você descansou/cochilou/dormiu?</Text>
           </View>
-          <Button>Encerrar Parada</Button>
+          <Button onPress={handleNavigateTripCurrent}>Encerrar Parada</Button>
         </Container>
       </ScrollView>
     </>

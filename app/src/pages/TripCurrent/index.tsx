@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -28,12 +28,18 @@ import {
   CardTime,
   Rota,
   BotaoContainer,
+  TimeCard,
+  TimeNumber,
+  TimeText,
+  TimeLabel
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
 
 import * as Yup from "yup";
 import getValidationErrors from "../../utils/getValidationErrors";
+
+import CountDown from "react-native-countdown-component";
 
 interface SignUpFormData {
   name: string;
@@ -90,6 +96,15 @@ const TripCurrent = () => {
     navigation.goBack();
   }
 
+  let [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let id = setInterval(() => {
+      setCount(count + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  });
+
   return (
     <>
       <Logo></Logo>
@@ -112,7 +127,28 @@ const TripCurrent = () => {
             </CardHeader>
             <CardHeader>
               <CardColumn>
-                <CardTime>00d00h00m59s</CardTime>
+                <TimeCard>
+                <TimeNumber>
+                    <TimeText>00</TimeText>
+                  </TimeNumber>
+                <TimeNumber>
+                    <TimeText>00</TimeText>
+                  </TimeNumber>
+                  <TimeNumber>
+                    <TimeText>00</TimeText>
+                  </TimeNumber>
+                  <TimeNumber>
+                    <TimeText>{count}</TimeText>
+                  </TimeNumber>
+                </TimeCard>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <Text>  Dias</Text>
+                <Text>  Horas</Text>
+                <Text>  Minutos</Text>
+                <Text>  Segundos</Text>
               </CardColumn>
             </CardHeader>
           </Card>
@@ -122,7 +158,16 @@ const TripCurrent = () => {
             </CardHeader>
             <CardHeader>
               <CardColumn>
-                <CardTime>00d5h29m01s</CardTime>
+                <CountDown
+                  until={14000}
+                  size={20}
+                  timeLabels={{
+                    d: "Dias",
+                    h: "Horas",
+                    m: "Minutos",
+                    s: "Segundos",
+                  }}
+                />
               </CardColumn>
             </CardHeader>
           </Card>
@@ -132,7 +177,16 @@ const TripCurrent = () => {
             </CardHeader>
             <CardHeader>
               <CardColumn>
-                <CardTime>00d11h59m01s</CardTime>
+                <CountDown
+                  until={500000}
+                  size={20}
+                  timeLabels={{
+                    d: "Dias",
+                    h: "Horas",
+                    m: "Minutos",
+                    s: "Segundos",
+                  }}
+                />
               </CardColumn>
             </CardHeader>
           </Card>
