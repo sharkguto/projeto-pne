@@ -6,20 +6,25 @@ services:
       context: .
       dockerfile: devops/dotnet.dockerfile
     ports:
-      - "5001:5001"
-      - "5000:5000"
+      - "5000:80"
+    links:
+      - db-postgres
     environment: 
       - ENVIRONMENT=${ENVIRONMENT}
-      - CONNECTION_STRING=${CONNECTION_STRING}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
   db-postgres:
-    network_mode: host
+    #network_mode: host
     build:
       context: .
       dockerfile: devops/postgres.dockerfile
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=pne
-      - POSTGRES_PASSWORD=pne
-      - POSTGRES_DB=pne
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
       - TZ=GMT
+
