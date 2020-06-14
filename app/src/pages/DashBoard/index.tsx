@@ -38,6 +38,14 @@ const DashBoard = () => {
     navigation.navigate("Servico");
   }
 
+  function handleNavigateVehicle () {
+    navigation.navigate("Vehicle");
+  }
+
+  function handleNavigatePerfil () {
+    navigation.navigate("Perfil");
+  }
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -61,11 +69,11 @@ const DashBoard = () => {
             </TouchableOpacity>
             </Card> 
             <Card>
-              <TouchableOpacity style={styles.item}>
+              <TouchableOpacity onPress={handleNavigateVehicle} style={styles.item}>
               <Icon name="truck" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Meus Veículos</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity onPress={handleNavigatePerfil} style={styles.item}>
               <Icon name="user" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Meu Perfil</Text>
             </TouchableOpacity>

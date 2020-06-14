@@ -24,7 +24,8 @@ import {
   Card,
   CardHeader,
   CardText,
-  CardColumn
+  CardColumn,
+  CardTextDetalhes
 } from "./styles";
 import Constants from "expo-constants";
 import { CardTitle } from "../Detail/styles";
@@ -36,7 +37,12 @@ const Trip = () => {
 
   function handleNavigateNewTrip () {
     navigation.navigate("NewTrip");
+  
   }
+  function handleNavigateTripDetail () {
+    navigation.navigate("TripDetail");
+  }
+
   function handleNavigateBack () {
     navigation.goBack();
   }
@@ -89,31 +95,13 @@ const Trip = () => {
                 <CardText>Pontos PX: 60</CardText>
               </CardColumn>
             </CardHeader>
-        </Card>
-
-        <Card>
             <CardHeader>
-              <CardColumn>
-                <CardText>Início: 20/06/2020</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Fim: 20/06/2020</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Origem: São Paulo-SP</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Destino: Curitiba-PR</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Tempo Total: 16h14m49s</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Pontos PX: 60</CardText>
+              <CardColumn>                
+                <TouchableOpacity onPress={handleNavigateTripDetail}>
+                    <CardTextDetalhes>
+                     MAIS DETALHES              
+                    </CardTextDetalhes>
+                  </TouchableOpacity>
               </CardColumn>
             </CardHeader>
         </Card>
@@ -141,6 +129,51 @@ const Trip = () => {
               </CardColumn>
               <CardColumn>
                 <CardText>Pontos PX: 60</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>                
+                <TouchableOpacity onPress={handleNavigateTripDetail}>
+                    <CardTextDetalhes>
+                     MAIS DETALHES              
+                    </CardTextDetalhes>
+                  </TouchableOpacity>
+              </CardColumn>
+            </CardHeader>
+        </Card>
+
+        <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Início: 20/06/2020</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Fim: 20/06/2020</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Origem: São Paulo-SP</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Destino: Curitiba-PR</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total: 16h14m49s</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Pontos PX: 60</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>                
+                <TouchableOpacity onPress={handleNavigateTripDetail}>
+                    <CardTextDetalhes>
+                     MAIS DETALHES              
+                    </CardTextDetalhes>
+                  </TouchableOpacity>
               </CardColumn>
             </CardHeader>
         </Card>

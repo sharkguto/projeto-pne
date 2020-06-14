@@ -35,10 +35,11 @@ interface SignUpFormData {
   password: string;
 }
 
-const NewTrip = () => {
+const VehicleNew = () => {
 
-  const destinoInputRef = useRef<TextInput>(null);
- 
+  const placaInputRef = useRef<TextInput>(null);
+  const licenciamentoInputRef = useRef<TextInput>(null);
+
   const formRef = useRef<FormHandles>(null);
 
   const navigation = useNavigation();
@@ -91,34 +92,46 @@ const NewTrip = () => {
         <ScrollView
         >
           <View style={styles.header}>
-              <TouchableOpacity onPress={handleNavigateBack}>
-                <Icon name="arrow-left" size={25} color="#000" />
-              </TouchableOpacity>
-              <Title>Nova Viagem</Title>
-              <Text></Text>
-            </View>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Icon name="arrow-left" size={25} color="#000" />
+            </TouchableOpacity>
+            <Title>Meu Veículo</Title>
+            <Text></Text>
+          </View>
           <Container>
-        
             <Form ref={formRef} onSubmit={handleSignUp}>
               <Input
                 autoCapitalize="words"
                 keyboardType="default"
-                name="origem"
-                icon="map-pin"
-                placeholder="Origem"
+                name="apelido"
+                icon="truck"
+                placeholder="Apelido"
                 returnKeyType="next"
                 onSubmitEditing={() => {
-                  destinoInputRef.current?.focus();
+                  placaInputRef.current?.focus();
                 }}
               />
               <Input
-                ref={destinoInputRef}
+                ref={placaInputRef}
                 autoCorrect={false}
                 autoCapitalize="none"
                 keyboardType="default"
-                name="destino"
-                icon="map-pin"
-                placeholder="Destino"
+                name="placa"
+                icon="truck"
+                placeholder="Placa"
+                returnKeyType="next"
+                onSubmitEditing={() => {
+                  licenciamentoInputRef.current?.focus();
+                }}
+              />
+              <Input
+                ref={licenciamentoInputRef}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="default"
+                name="licenciamento"
+                icon="truck"
+                placeholder="Licenciamento"
                 returnKeyType="next"
                 onSubmitEditing={() => {
                   formRef.current?.submitForm();
@@ -129,7 +142,7 @@ const NewTrip = () => {
                   formRef.current?.submitForm();
                 }}
               >
-                Iniciar Viagem
+                Cadastrar
               </Button>
             </Form>
           </Container>
@@ -138,7 +151,6 @@ const NewTrip = () => {
     </>
   );
 };
-
 
 const styles = StyleSheet.create({
   header: {
@@ -151,5 +163,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default NewTrip;
+export default VehicleNew;
