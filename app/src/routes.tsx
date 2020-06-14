@@ -19,6 +19,8 @@ import TripCurrent from "./pages/TripCurrent";
 import TripFinishStop from "./pages/TripFinishStop";
 import TripStartStop from "./pages/TripStartStop";
 import Stretching from "./pages/Stretching";
+import ChatPx from "./pages/ChatPx";
+import ChatPxComunidade from "./pages/ChatPxComunidade";
 
 // roteamento da aplicação
 const AppStack = createStackNavigator();
@@ -51,6 +53,8 @@ const Routes = () => {
         <AppStack.Screen name="TripFinishStop" component={TripFinishStop} />
         <AppStack.Screen name="TripStartStop" component={TripStartStop} />
         <AppStack.Screen name="Stretching" component={Stretching} />
+        <AppStack.Screen name="ChatPx" component={ChatPx} />
+        <AppStack.Screen name="ChatPxComunidade" component={ChatPxComunidade} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
