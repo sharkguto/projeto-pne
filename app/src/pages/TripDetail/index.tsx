@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -27,8 +27,8 @@ import {
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
 
-import * as Yup from 'yup';
-import getValidationErrors from '../../utils/getValidationErrors';
+import * as Yup from "yup";
+import getValidationErrors from "../../utils/getValidationErrors";
 
 interface SignUpFormData {
   name: string;
@@ -40,9 +40,8 @@ interface SignUpFormData {
 }
 
 const TripDetail = () => {
-
   const destinoInputRef = useRef<TextInput>(null);
- 
+
   const formRef = useRef<FormHandles>(null);
 
   const navigation = useNavigation();
@@ -53,17 +52,17 @@ const TripDetail = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          name: Yup.string().required('Name is required'),
-          password: Yup.string().min(6, 'Password must have at least 6 digits'),
+          name: Yup.string().required("Name is required"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
 
-        Alert.alert('Account successfully created!', 'Now you can login');
+        Alert.alert("Account successfully created!", "Now you can login");
 
         navigation.goBack();
       } catch (err) {
@@ -73,18 +72,18 @@ const TripDetail = () => {
         }
 
         Alert.alert(
-          'Registration Error',
-          'An error ocurred when trying to sign up',
+          "Registration Error",
+          "An error ocurred when trying to sign up"
         );
       }
     },
-    [navigation],
+    [navigation]
   );
 
-  function handleNavigatePoints () {
+  function handleNavigatePoints() {
     navigation.navigate("TripPoints");
   }
-  function handleNavigateBack () {
+  function handleNavigateBack() {
     navigation.goBack();
   }
 
@@ -92,82 +91,80 @@ const TripDetail = () => {
     <>
       <Logo></Logo>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled>
-        <ScrollView
-        >
+        <ScrollView style={styles.viewSize}>
           <View style={styles.header}>
-              <TouchableOpacity onPress={handleNavigateBack}>
-                <Icon name="arrow-left" size={25} color="#000" />
-              </TouchableOpacity>
-              <Title>Detalhes da Viagem</Title>
-              <Text></Text>
-            </View>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Icon name="arrow-left" size={25} color="#000" />
+            </TouchableOpacity>
+            <Title>Detalhes da Viagem</Title>
+            <Text></Text>
+          </View>
           <Container>
-          <Card>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Início: 20/06/2020</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Fim: 20/06/2020</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Origem: São Paulo-SP</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Destino: Curitiba-PR</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Tempo Total: 16h14m49s</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>Pontos PX: 60</CardText>
-                <TouchableOpacity onPress={handleNavigatePoints}>
-                <Icon name="search" size={25} color="#000" />
-              </TouchableOpacity>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Tempo Total de Descanćo: 3h14m02s</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Total de Paradas: 1</CardText>
-              </CardColumn>
-            </CardHeader>
-        </Card>
-        <Card>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Check-In de Parada</CardText>
-              </CardColumn>
-              <CardColumn>
-                <CardText>20/06/2020 às 12:22:01</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Ponto: Posto Graal KM xxx</CardText>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardColumn>
-                <CardText>Tempo de Permanência: 3h14m02s</CardText>
-              </CardColumn>
-            </CardHeader>
-        </Card>
+            <Card>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Início: 20/06/2020</CardText>
+                </CardColumn>
+                <CardColumn>
+                  <CardText>Fim: 20/06/2020</CardText>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Origem: São Paulo-SP</CardText>
+                </CardColumn>
+                <CardColumn>
+                  <CardText>Destino: Curitiba-PR</CardText>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Tempo Total: 16h14m49s</CardText>
+                </CardColumn>
+                <CardColumn>
+                  <CardText>Pontos PX: 60</CardText>
+                  <TouchableOpacity onPress={handleNavigatePoints}>
+                    <Icon name="search" size={25} color="#000" />
+                  </TouchableOpacity>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Tempo Total de Descanćo: 3h14m02s</CardText>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Total de Paradas: 1</CardText>
+                </CardColumn>
+              </CardHeader>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Check-In de Parada</CardText>
+                </CardColumn>
+                <CardColumn>
+                  <CardText>20/06/2020 às 12:22:01</CardText>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Ponto: Posto Graal KM xxx</CardText>
+                </CardColumn>
+              </CardHeader>
+              <CardHeader>
+                <CardColumn>
+                  <CardText>Tempo de Permanência: 3h14m02s</CardText>
+                </CardColumn>
+              </CardHeader>
+            </Card>
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
     </>
   );
 };
-
 
 const styles = StyleSheet.create({
   header: {
@@ -178,7 +175,10 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: "#fbd762"
   },
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
+  }
 });
-
 
 export default TripDetail;
