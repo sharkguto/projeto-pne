@@ -18,7 +18,8 @@ namespace pe_na_estrada_api.BLL
         public async Task<List<Ranking>> GetCalculatedRanking(pneContext pContext)
         {
             string sQuery = "select us.nickname as nickname, sum (trp.points ) as points, " +
-            "max(trp.created_at ) as last_active_date, us.name as name " +
+            "max(trp.created_at ) as last_active_date, us.name as name, " +
+            "RANK () OVER ( ORDER BY sum(trp.points) DESC) as position " +
             "from tbl_ranking_px trp " +
             "inner join tbl_user us on trp.id_user =us.id " +
             "group by us.name,us.nickname";
@@ -37,6 +38,7 @@ namespace pe_na_estrada_api.BLL
                         pRanking.Nickname = result["nickname"].ToString();
                         pRanking.Name = result["name"].ToString();
                         pRanking.Points = (decimal)result["points"];
+                        pRanking.Position = (Int64)result["position"];
                         pRanking.LastActiveDate = (DateTime)result["last_active_date"];
 
                         pRankingList.Add(pRanking);
