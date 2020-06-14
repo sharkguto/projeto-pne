@@ -10,6 +10,11 @@ import Trip from "./pages/Trip";
 import Servico from "./pages/Servico";
 import Detail from "./pages/Detail";
 import NewTrip from "./pages/NewTrip";
+import TripDetail from "./pages/TripDetail";
+import TripPoints from "./pages/TripPoints";
+import Vehicle from "./pages/Vehicle";
+import VehicleNew from "./pages/VehicleNew";
+import Perfil from "./pages/Perfil";
 
 // roteamento da aplicação
 const AppStack = createStackNavigator();
@@ -33,6 +38,11 @@ const Routes = () => {
         <AppStack.Screen name="Servico" component={Servico} />
         <AppStack.Screen name="Detail" component={Detail} />
         <AppStack.Screen name="NewTrip" component={NewTrip} />
+        <AppStack.Screen name="TripDetail" component={TripDetail} />
+        <AppStack.Screen name="TripPoints" component={TripPoints} />
+        <AppStack.Screen name="Vehicle" component={Vehicle} />
+        <AppStack.Screen name="VehicleNew" component={VehicleNew} />
+        <AppStack.Screen name="Perfil" component={Perfil} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

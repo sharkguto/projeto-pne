@@ -18,7 +18,11 @@ import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import {
   Container,
-  Title
+  Title,
+  Card,
+  CardHeader,
+  CardColumn,
+  CardText
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -35,7 +39,7 @@ interface SignUpFormData {
   password: string;
 }
 
-const NewTrip = () => {
+const TripDetail = () => {
 
   const destinoInputRef = useRef<TextInput>(null);
  
@@ -77,8 +81,8 @@ const NewTrip = () => {
     [navigation],
   );
 
-  function goNavigatePoints () {
-    navigation.navigate("Points");
+  function handleNavigatePoints () {
+    navigation.navigate("TripPoints");
   }
   function handleNavigateBack () {
     navigation.goBack();
@@ -94,44 +98,69 @@ const NewTrip = () => {
               <TouchableOpacity onPress={handleNavigateBack}>
                 <Icon name="arrow-left" size={25} color="#000" />
               </TouchableOpacity>
-              <Title>Nova Viagem</Title>
+              <Title>Detalhes da Viagem</Title>
               <Text></Text>
             </View>
           <Container>
-        
-            <Form ref={formRef} onSubmit={handleSignUp}>
-              <Input
-                autoCapitalize="words"
-                keyboardType="default"
-                name="origem"
-                icon="map-pin"
-                placeholder="Origem"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  destinoInputRef.current?.focus();
-                }}
-              />
-              <Input
-                ref={destinoInputRef}
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="default"
-                name="destino"
-                icon="map-pin"
-                placeholder="Destino"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-              />
-              <Button
-                onPress={() => {
-                  formRef.current?.submitForm();
-                }}
-              >
-                Iniciar Viagem
-              </Button>
-            </Form>
+          <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Início: 20/06/2020</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Fim: 20/06/2020</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Origem: São Paulo-SP</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Destino: Curitiba-PR</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total: 16h14m49s</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>Pontos PX: 60</CardText>
+                <TouchableOpacity onPress={handleNavigatePoints}>
+                <Icon name="search" size={25} color="#000" />
+              </TouchableOpacity>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo Total de Descanćo: 3h14m02s</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Total de Paradas: 1</CardText>
+              </CardColumn>
+            </CardHeader>
+        </Card>
+        <Card>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Check-In de Parada</CardText>
+              </CardColumn>
+              <CardColumn>
+                <CardText>20/06/2020 às 12:22:01</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Ponto: Posto Graal KM xxx</CardText>
+              </CardColumn>
+            </CardHeader>
+            <CardHeader>
+              <CardColumn>
+                <CardText>Tempo de Permanência: 3h14m02s</CardText>
+              </CardColumn>
+            </CardHeader>
+        </Card>
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -152,4 +181,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default NewTrip;
+export default TripDetail;

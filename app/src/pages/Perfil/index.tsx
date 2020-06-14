@@ -9,6 +9,7 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
+  CheckBox,
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -18,7 +19,9 @@ import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import {
   Container,
-  Title
+  Title,
+  RankText,
+  InfoText
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -35,10 +38,13 @@ interface SignUpFormData {
   password: string;
 }
 
-const NewTrip = () => {
+const Perfil = () => {
 
-  const destinoInputRef = useRef<TextInput>(null);
- 
+  const phoneInputRef = useRef<TextInput>(null);
+  const cpfInputRef = useRef<TextInput>(null);
+  const nascimentoInputRef = useRef<TextInput>(null);
+  const apelidoInputRef = useRef<TextInput>(null);
+  const passwordInputRef = useRef<TextInput>(null);
   const formRef = useRef<FormHandles>(null);
 
   const navigation = useNavigation();
@@ -94,42 +100,96 @@ const NewTrip = () => {
               <TouchableOpacity onPress={handleNavigateBack}>
                 <Icon name="arrow-left" size={25} color="#000" />
               </TouchableOpacity>
-              <Title>Nova Viagem</Title>
+              <Title>Meu Perfil</Title>
               <Text></Text>
             </View>
           <Container>
-        
+            <Image style={styles.profile} source={require('../../assets/perfil.jpg')}/>
+            <RankText>PX Ranking: Posição #10</RankText>
+            <InfoText>Ótimo trabalho! Continue melhorando!</InfoText>
             <Form ref={formRef} onSubmit={handleSignUp}>
               <Input
                 autoCapitalize="words"
                 keyboardType="default"
-                name="origem"
-                icon="map-pin"
-                placeholder="Origem"
+                name="name"
+                icon="user"
+                placeholder="Seu Nome"
                 returnKeyType="next"
                 onSubmitEditing={() => {
-                  destinoInputRef.current?.focus();
+                  phoneInputRef.current?.focus();
                 }}
               />
               <Input
-                ref={destinoInputRef}
+                ref={phoneInputRef}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="phone-pad"
+                name="phone"
+                icon="phone"
+                placeholder="Seu Celular"
+                returnKeyType="next"
+                onSubmitEditing={() => {
+                  cpfInputRef.current?.focus();
+                }}
+              />
+              <Input
+                ref={cpfInputRef}
                 autoCorrect={false}
                 autoCapitalize="none"
                 keyboardType="default"
-                name="destino"
-                icon="map-pin"
-                placeholder="Destino"
+                name="cpf"
+                icon="file-text"
+                placeholder="Seu CPF"
                 returnKeyType="next"
+                onSubmitEditing={() => {
+                  nascimentoInputRef.current?.focus();
+                }}
+              />
+              <Input
+                ref={nascimentoInputRef}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="default"
+                name="nascimento"
+                icon="calendar"
+                placeholder="Sua Data de Nascimento"
+                returnKeyType="next"
+                onSubmitEditing={() => {
+                  apelidoInputRef.current?.focus();
+                }}
+              />
+              <Input
+                ref={apelidoInputRef}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="default"
+                name="apelido"
+                icon="user"
+                placeholder="Seu Apelido"
+                returnKeyType="next"
+                onSubmitEditing={() => {
+                  passwordInputRef.current?.focus();
+                }}
+              />
+
+              <Input
+                secureTextEntry
+                name="password"
+                icon="lock"
+                placeholder="Sua senha"
+                returnKeyType="send"
+                ref={passwordInputRef}
                 onSubmitEditing={() => {
                   formRef.current?.submitForm();
                 }}
               />
+
               <Button
                 onPress={() => {
                   formRef.current?.submitForm();
                 }}
               >
-                Iniciar Viagem
+                Editar meus dados
               </Button>
             </Form>
           </Container>
@@ -149,7 +209,13 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: "#fbd762"
   },
+  profile: {
+    borderRadius: 120,
+    width:120,
+    height:120,
+    marginBottom:30
+  }
 });
 
 
-export default NewTrip;
+export default Perfil;
