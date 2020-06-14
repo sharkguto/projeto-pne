@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <RankingPx msg="Ranking PX - interligando a comunidade de caminhoneiros pelo Brasil"/>
+    <RankingPx title="Ranking PX"
+    subTitle="Interligando a comunidade de caminhoneiros pelo Brasil"/>
   </div>
 </template>
 
