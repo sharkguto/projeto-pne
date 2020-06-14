@@ -28,8 +28,6 @@ namespace pe_na_estrada_api.BLL
 
         public async Task<T> Update(DbSet<T> pTable, pneContext pContext, T pUser)
         {
-            // var pObject = await pTable.Where(x => ((IGenericModel)x).Id == ((IGenericModel)pUser).Id).FirstOrDefaultAsync();
-            // pObject = pUser;
             pTable.Update(pUser);
             await pContext.SaveChangesAsync();
             return pUser;
