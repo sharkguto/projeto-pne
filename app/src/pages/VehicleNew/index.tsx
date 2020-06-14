@@ -95,7 +95,7 @@ const VehicleNew = () => {
         >
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <Icon name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title>Meu Veículo</Title>
             <Text></Text>
