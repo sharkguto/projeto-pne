@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
+import { Feather as IconF } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Input from "../../components/Input";
@@ -56,19 +57,21 @@ const Trip = () => {
         <Container>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title>Viagens</Title>
             <Text></Text>
           </View>
 
-          <Button onPress={handleNavigateTripCurrent}>Continuar Viagem</Button>
+          <Button onPress={handleNavigateTripCurrent}>
+            Continuar Viagem
+          </Button>
           <Button onPress={handleNavigateNewTrip}>Nova Viagem</Button>
           <View style={styles.container}>
             <Title>Histório de Viagens</Title>
           </View>
 
-          <Card>
+          <Card style={styles.cardStyle}>
             <CardHeader>
               <CardColumn>
                 <CardText>Início: 20/06/2020</CardText>
@@ -102,7 +105,7 @@ const Trip = () => {
             </CardHeader>
           </Card>
 
-          <Card>
+          <Card style={styles.cardStyle}>
             <CardHeader>
               <CardColumn>
                 <CardText>Início: 20/06/2020</CardText>
@@ -136,7 +139,7 @@ const Trip = () => {
             </CardHeader>
           </Card>
 
-          <Card>
+          <Card style={styles.cardStyle}>
             <CardHeader>
               <CardColumn>
                 <CardText>Início: 20/06/2020</CardText>
@@ -191,6 +194,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center"
+  },
+
+  cardStyle: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
 
   itemsContainer: {

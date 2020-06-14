@@ -94,7 +94,7 @@ const TripCurrent = () => {
       <ScrollView style={styles.viewSize}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleNavigateBack}>
-            <Icon name="arrow-left" size={25} color="#000" />
+            <Icon name="arrow-left" size={48} color="#000" />
           </TouchableOpacity>
           <Title>Viagem Atual</Title>
           <Text></Text>
@@ -104,7 +104,7 @@ const TripCurrent = () => {
             <RotaText>Origem: São Paulo-SP</RotaText>
             <RotaText>Destino: Curitiba-SP</RotaText>
           </Rota>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Tempo de Viagem</CardTitle>
             </CardHeader>
@@ -114,7 +114,7 @@ const TripCurrent = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Parada recomendada em</CardTitle>
             </CardHeader>
@@ -124,7 +124,7 @@ const TripCurrent = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Jornada máxima Restante</CardTitle>
             </CardHeader>
@@ -141,7 +141,7 @@ const TripCurrent = () => {
               onPress={() => handleTripStartStop()}
               activeOpacity={0.6}
             >
-              <Icon name="map-pin" size={26} color="#fff" />
+              <Icon name="map-pin" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Iniciar Parada</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -157,7 +157,7 @@ const TripCurrent = () => {
               onPress={finishTrip}
               activeOpacity={0.6}
             >
-              <Icon name="x-square" size={26} color="#fff" />
+              <Icon name="x-square" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Encerrar Viagem</Text>
             </TouchableOpacity>
           </BotaoContainer>
@@ -195,13 +195,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#CF2A27",
     borderWidth: 2,
     borderColor: "#CF2A27",
+<<<<<<< HEAD
     height: 90,
     width: 95,
+=======
+    height: 110,
+    width: 150,
+>>>>>>> 09e9adb75adcf2b589fc7ec18920b2f4c806fcd6
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
     paddingBottom: 16,
     marginRight: 8,
+    marginLeft:8,
     alignItems: "center",
     justifyContent: "space-between",
     textAlign: "center"
@@ -209,12 +215,23 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
-    fontSize: 14,
+    fontSize: 18,
     color: "#fff"
   },
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762"
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   }
 });
 

@@ -94,13 +94,13 @@ const TripDetail = () => {
         <ScrollView style={styles.viewSize}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <Icon name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title>Detalhes da Viagem</Title>
             <Text></Text>
           </View>
           <Container>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Início: 20/06/2020</CardText>
@@ -139,7 +139,7 @@ const TripDetail = () => {
                 </CardColumn>
               </CardHeader>
             </Card>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Check-In de Parada</CardText>
@@ -178,6 +178,17 @@ const styles = StyleSheet.create({
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762"
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   }
 });
 

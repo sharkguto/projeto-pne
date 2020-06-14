@@ -6,6 +6,7 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 // import api from '../../services/api';
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
+import { Feather as IconF } from "@expo/vector-icons";
 
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
@@ -101,7 +102,7 @@ const Servico = () => {
         <View style={styles.container}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title></Title>
             <Text></Text>
@@ -185,7 +186,50 @@ const Servico = () => {
               <Icon name="bed" size={26} color="#fff" />
               <Text style={styles.itemTitle}>Descanso</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="shower" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Banho</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="shopping-basket" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Mercado</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="clinic-medical" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Farmacia</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="gas-pump" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Combustível</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="user-ninja" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Área de Risco</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="plus-square" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Novo Serviço</Text>
+            </TouchableOpacity>
           </ScrollView>
+          
         </View>
       </ScrollView>
     </>
@@ -266,8 +310,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 0,
     paddingBottom: 0,
-    // backgroundColor: "#fbd762",
-    backgroundColor: "#000",
+    backgroundColor: "#fbd762",
     height:'100%',
   },
 
@@ -284,7 +327,6 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     height: 90,
     width: 110,
-    marginTop:'23%',
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
