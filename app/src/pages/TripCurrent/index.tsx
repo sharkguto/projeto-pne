@@ -51,43 +51,39 @@ const TripCurrent = () => {
 
   const navigation = useNavigation();
 
-  const handleSignUp = useCallback(
-    async (data: SignUpFormData) => {
-      try {
-        formRef.current?.setErrors({});
+  const finishTrip = () =>
+    Alert.alert(
+      "Atenção!",
+      "Deseja encerrar essa viagem?",
+      [
+        {
+          text: "Não",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Sim", onPress: () => finishTripSuccess()}
+      ],
+      { cancelable: false }
+    );
 
-        const schema = Yup.object().shape({
-          name: Yup.string().required("Name is required"),
-          password: Yup.string().min(6, "Password must have at least 6 digits")
-        });
+    const finishTripSuccess = () =>
+    Alert.alert(
+      "Parabéns!",
+      "Viagem concluída com sucesso!",
+      [
+        { text: "Sim", onPress: () => handleNavigateBack()}
+      ],
+      { cancelable: false }
+    );
 
-        await schema.validate(data, {
-          abortEarly: false
-        });
-
-        //	await api.post('users', data);
-
-        Alert.alert("Account successfully created!", "Now you can login");
-
-        navigation.goBack();
-      } catch (err) {
-        if (err instanceof Yup.ValidationError) {
-          const errors = getValidationErrors(err);
-          formRef.current?.setErrors(errors);
-        }
-
-        Alert.alert(
-          "Registration Error",
-          "An error ocurred when trying to sign up"
-        );
-      }
-    },
-    [navigation]
-  );
-
-  function handleNavigatePoints() {
-    navigation.navigate("TripPoints");
+  function handleTripFinishStop() {
+    navigation.navigate("TripFinishStop");
   }
+
+  function handleTripStartStop() {
+    navigation.navigate("TripStartStop");
+  }
+  
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -98,7 +94,7 @@ const TripCurrent = () => {
       <ScrollView style={styles.viewSize}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleNavigateBack}>
-            <Icon name="arrow-left" size={25} color="#000" />
+            <Icon name="arrow-left" size={48} color="#000" />
           </TouchableOpacity>
           <Title>Viagem Atual</Title>
           <Text></Text>
@@ -142,18 +138,26 @@ const TripCurrent = () => {
           <BotaoContainer>
             <TouchableOpacity
               style={styles.item}
-              // onPress={() => handleSelectItem(1)}
+              onPress={() => handleTripStartStop()}
               activeOpacity={0.6}
             >
-              <Icon name="map-pin" size={26} color="#fff" />
+              <Icon name="map-pin" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Iniciar Parada</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.item}
-              // onPress={() => handleSelectItem(2)}
+              onPress={() => handleTripFinishStop()}
               activeOpacity={0.6}
             >
-              <Icon name="x-square" size={26} color="#fff" />
+              <Icon name="map-pin" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Encerrar Parada</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.item}
+              onPress={finishTrip}
+              activeOpacity={0.6}
+            >
+              <Icon name="x-square" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Encerrar Viagem</Text>
             </TouchableOpacity>
           </BotaoContainer>
@@ -192,12 +196,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#CF2A27",
     height: 90,
-    width: 110,
+    width: 95,
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
     paddingBottom: 16,
     marginRight: 8,
+    marginLeft:8,
     alignItems: "center",
     justifyContent: "space-between",
     textAlign: "center"
@@ -205,7 +210,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
-    fontSize: 14,
+    fontSize: 18,
     color: "#fff"
   },
   viewSize: {

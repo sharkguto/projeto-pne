@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
+import { Feather as IconF } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Input from "../../components/Input";
@@ -56,7 +57,7 @@ const Trip = () => {
         <Container>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title>Viagens</Title>
             <Text></Text>
