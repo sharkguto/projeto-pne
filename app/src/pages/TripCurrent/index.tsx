@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -27,7 +27,7 @@ import {
   CardTitle,
   CardTime,
   Rota,
-  BotaoContainer,
+  BotaoContainer
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -58,11 +58,11 @@ const TripCurrent = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().required("Name is required"),
-          password: Yup.string().min(6, "Password must have at least 6 digits"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
@@ -95,7 +95,7 @@ const TripCurrent = () => {
   return (
     <>
       <Logo></Logo>
-      <ScrollView>
+      <ScrollView style={styles.viewSize}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleNavigateBack}>
             <Icon name="arrow-left" size={25} color="#000" />
@@ -170,20 +170,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     display: "flex",
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   itemsContainer: {
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
 
   item: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -200,14 +200,18 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
     fontSize: 14,
-    color: "#fff",
+    color: "#fff"
   },
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
+  }
 });
 
 export default TripCurrent;

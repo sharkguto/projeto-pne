@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -30,32 +30,29 @@ import {
 import Constants from "expo-constants";
 import { CardTitle } from "../Detail/styles";
 
-
 const Trip = () => {
-
   const navigation = useNavigation();
 
-  function handleNavigateNewTrip () {
+  function handleNavigateNewTrip() {
     navigation.navigate("NewTrip");
-  
   }
 
-  function handleNavigateTripDetail () {
+  function handleNavigateTripDetail() {
     navigation.navigate("TripDetail");
   }
 
-  function handleNavigateTripCurrent () {
+  function handleNavigateTripCurrent() {
     navigation.navigate("TripCurrent");
   }
 
-  function handleNavigateBack () {
+  function handleNavigateBack() {
     navigation.goBack();
   }
 
   return (
     <>
       <Logo></Logo>
-      <ScrollView>
+      <ScrollView style={styles.viewSize}>
         <Container>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
@@ -65,12 +62,8 @@ const Trip = () => {
             <Text></Text>
           </View>
 
-          <Button onPress={handleNavigateTripCurrent}>
-            Continuar Viagem
-          </Button>
-          <Button onPress={handleNavigateNewTrip}>
-            Nova Viagem
-            </Button>
+          <Button onPress={handleNavigateTripCurrent}>Continuar Viagem</Button>
+          <Button onPress={handleNavigateNewTrip}>Nova Viagem</Button>
           <View style={styles.container}>
             <Title>Histório de Viagens</Title>
           </View>
@@ -101,17 +94,15 @@ const Trip = () => {
               </CardColumn>
             </CardHeader>
             <CardHeader>
-              <CardColumn>                
+              <CardColumn>
                 <TouchableOpacity onPress={handleNavigateTripDetail}>
-                    <CardTextDetalhes>
-                     MAIS DETALHES              
-                    </CardTextDetalhes>
-                  </TouchableOpacity>
+                  <CardTextDetalhes>MAIS DETALHES</CardTextDetalhes>
+                </TouchableOpacity>
               </CardColumn>
             </CardHeader>
-        </Card>
+          </Card>
 
-        <Card>
+          <Card>
             <CardHeader>
               <CardColumn>
                 <CardText>Início: 20/06/2020</CardText>
@@ -137,17 +128,15 @@ const Trip = () => {
               </CardColumn>
             </CardHeader>
             <CardHeader>
-              <CardColumn>                
+              <CardColumn>
                 <TouchableOpacity onPress={handleNavigateTripDetail}>
-                    <CardTextDetalhes>
-                     MAIS DETALHES              
-                    </CardTextDetalhes>
-                  </TouchableOpacity>
+                  <CardTextDetalhes>MAIS DETALHES</CardTextDetalhes>
+                </TouchableOpacity>
               </CardColumn>
             </CardHeader>
-        </Card>
+          </Card>
 
-        <Card>
+          <Card>
             <CardHeader>
               <CardColumn>
                 <CardText>Início: 20/06/2020</CardText>
@@ -173,16 +162,13 @@ const Trip = () => {
               </CardColumn>
             </CardHeader>
             <CardHeader>
-              <CardColumn>                
+              <CardColumn>
                 <TouchableOpacity onPress={handleNavigateTripDetail}>
-                    <CardTextDetalhes>
-                     MAIS DETALHES              
-                    </CardTextDetalhes>
-                  </TouchableOpacity>
+                  <CardTextDetalhes>MAIS DETALHES</CardTextDetalhes>
+                </TouchableOpacity>
               </CardColumn>
             </CardHeader>
-        </Card>
-
+          </Card>
         </Container>
       </ScrollView>
     </>
@@ -210,7 +196,7 @@ const styles = StyleSheet.create({
   itemsContainer: {
     flexDirection: "row",
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 16
   },
 
   item: {
@@ -226,12 +212,12 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
 
   selectedItem: {
     borderColor: "#34CB79",
-    borderWidth: 2,
+    borderWidth: 2
   },
 
   itemTitle: {
@@ -240,7 +226,10 @@ const styles = StyleSheet.create({
     fontSize: 19,
     color: "#fff"
   },
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
+  }
 });
-
 
 export default Trip;
