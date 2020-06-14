@@ -31,7 +31,27 @@ so: ubuntu
 3. dentro da pasta "./app" , executar os seguintes comandos:
 
     ```bash
+    # install expo global
+    sudo npm install -g --unsafe-perm expo-cli
+    # entrar na pasta do app
     cd app
-    npm install -g expo
+    # instalar dependencias
+    npm install
+    #executar o app
+    npm start
     ```
+
+4. instalar o expo no seu celular
+
+    [expo-android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en)
+
+    [expo-ios](https://apps.apple.com/br/app/expo-client/id982107779)
+
+5. escanear o qrcode do expo e rodar o app
+
+    ![./docs/running.png](./docs/scanear.png)
+
+    ![executando](./docs/running.png)
+
+    ![executando-celular](./docs/running.jpeg)
 
