@@ -19,5 +19,12 @@ namespace pe_na_estrada_api.Controllers
         {
             return await new RankingPX().GetPointsByTripId(pContext.TblRankingPx, id);
         }
+
+        [HttpGet]
+        [Route("list")]
+        public async Task<ActionResult<List<Ranking>>> GetCalculatedRanking([FromServices] pneContext pContext)
+        {
+            return await new RankingPX().GetCalculatedRanking(pContext);
+        }
     }
 }
