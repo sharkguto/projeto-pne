@@ -221,6 +221,13 @@ const Servico = () => {
               <Icon name="user-ninja" size={26} color="#fff" />
               <Text style={styles.itemTitle}>Área de Risco</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.item}
+              onPress={() => handleSelectItem(1)}
+              activeOpacity={0.6}
+            >
+              <Icon name="plus-square" size={26} color="#fff" />
+              <Text style={styles.itemTitle}>Novo Serviço</Text>
+            </TouchableOpacity>
           </ScrollView>
           
         </View>
