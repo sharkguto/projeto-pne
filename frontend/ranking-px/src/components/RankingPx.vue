@@ -1,6 +1,6 @@
 <template>
 <div>
-<section class="hero is-warning">
+<section class="hero ccr-vermelho">
   <div class="hero-body">
     <div class="container">
       <img alt="Vue logo" src="../assets/logo.png">
@@ -96,6 +96,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.ccr-vermelho {
+  background-color: #CF2A27;
+}
 h3 {
   margin: 40px 0 0;
 }
