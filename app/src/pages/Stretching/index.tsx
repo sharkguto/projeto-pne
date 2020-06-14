@@ -48,14 +48,38 @@ const Stretching = () => {
   const navigation = useNavigation();
 
   let [count, setCount] = useState<number>(0);
+  let [exercicio, setExercicio] = useState<number>(0);
+  let [button, setButton] = useState<boolean>(true);
 
   function handleNavigateBack() {
     navigation.goBack();
   }
-
-  function handleStart() {
-    setCount(count + 5);
+  function handleNavigateTripCurrent() {
+    navigation.navigate("TripCurrent");
   }
+
+  function nextExercice() {
+
+    if(exercicio >=2) {
+      Alert.alert(
+        "Parabéns!",
+        "Exercícios realizados sucesso!",
+        [{ text: "Sim", onPress: () => handleNavigateTripCurrent() }],
+        { cancelable: false }
+      );
+      return;
+    }
+
+    setExercicio(exercicio + 1);
+  }
+
+  const handleStart = useCallback(
+     () => {
+      setCount(count + 5);
+    },
+    [count],
+  );
+
   
   return (
     <>
@@ -73,17 +97,27 @@ const Stretching = () => {
             Você deve realizar a posićão de alongamento abaixo por 30s
           </InfoText>
           <Card>
-            <Image source={require("../../assets/alongamento-1.png")}></Image>
+            {exercicio == 1 &&
+               <Image source={require("../../assets/alongamento-1.png")}></Image>
+            }
+
+             {exercicio == 2 &&
+               <Image source={require("../../assets/alongamento-2.png")}></Image>
+            }
+            
           </Card>
           <CountDown
             until={count}
-            // onFinish={() => alert("finished")}
+             onFinish={() => nextExercice()}
             // onPress={() => alert("hello")}
             timeToShow={['S']}
             timeLabels={{s: 'Segundos'}}
             size={30}
           />
-          <Button onPress={handleStart}>Iniciar</Button>
+          {button &&
+            <Button onPress={handleStart}>Iniciar</Button>
+          }
+          
         </Container>
       </ScrollView>
     </>

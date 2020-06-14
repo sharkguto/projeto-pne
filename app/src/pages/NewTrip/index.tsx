@@ -77,8 +77,8 @@ const NewTrip = () => {
     [navigation],
   );
 
-  function goNavigatePoints () {
-    navigation.navigate("Points");
+  function goNavigateCurrentTrip () {
+    navigation.navigate("TripCurrent");
   }
   function handleNavigateBack () {
     navigation.goBack();
@@ -100,7 +100,7 @@ const NewTrip = () => {
             </View>
           <Container>
         
-            <Form ref={formRef} onSubmit={handleSignUp}>
+            <Form ref={formRef} onSubmit={goNavigateCurrentTrip}>
               <Input
                 autoCapitalize="words"
                 keyboardType="default"

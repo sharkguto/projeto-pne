@@ -60,7 +60,7 @@ export const Card = styled.View`
  font-family: "Roboto_400Regular";
  font-size: 14px;
  width: 100%;
- height: 100px;
+ height: 130px;
  padding: 16px 16px;
  background: #f5f5f5;
  border-radius: 0px;
@@ -127,4 +127,43 @@ export const BotaoContainer = styled.View`
   align-content: center;
   padding-top: 20px;
 `;
+
+
+export const TimeCard = styled.View`
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+  align-content: center;
+`;
+
+export const TimeNumber = styled.View`
+ width: 50px;
+ border-radius: 6px;
+ height: 50px;
+ background-color: #f9b813;
+ padding-top: 10px;
+ padding-left: 12px;
+ margin-left: 5px;
+ 
+`;
+
+export const TimeText = styled.Text`
+  font-size: 21px;
+  font-weight:bold;
+  color: #000;
+  font-family: "Roboto_400Regular";
+  margin: 1px 0 1px;
+`;
+
+export const TimeLabel = styled.Text`
+  font-size: 8px;
+  color: #000;
+  font-family: "Roboto_400Regular";
+  margin: 1px 0 1px;
+`;
+
+
+
 
