@@ -98,7 +98,7 @@ const TripCurrent = () => {
       <ScrollView style={styles.viewSize}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleNavigateBack}>
-            <Icon name="arrow-left" size={25} color="#000" />
+            <Icon name="arrow-left" size={48} color="#000" />
           </TouchableOpacity>
           <Title>Viagem Atual</Title>
           <Text></Text>
@@ -145,7 +145,7 @@ const TripCurrent = () => {
               // onPress={() => handleSelectItem(1)}
               activeOpacity={0.6}
             >
-              <Icon name="map-pin" size={26} color="#fff" />
+              <Icon name="map-pin" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Iniciar Parada</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -153,7 +153,7 @@ const TripCurrent = () => {
               // onPress={() => handleSelectItem(2)}
               activeOpacity={0.6}
             >
-              <Icon name="x-square" size={26} color="#fff" />
+              <Icon name="x-square" size={40} color="#fff" />
               <Text style={styles.itemTitle}>Encerrar Viagem</Text>
             </TouchableOpacity>
           </BotaoContainer>
@@ -191,13 +191,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#CF2A27",
     borderWidth: 2,
     borderColor: "#CF2A27",
-    height: 90,
-    width: 110,
+    height: 110,
+    width: 150,
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
     paddingBottom: 16,
     marginRight: 8,
+    marginLeft:8,
     alignItems: "center",
     justifyContent: "space-between",
     textAlign: "center"
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
-    fontSize: 14,
+    fontSize: 18,
     color: "#fff"
   },
   viewSize: {
