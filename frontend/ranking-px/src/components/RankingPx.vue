@@ -50,7 +50,7 @@ export default {
     selected(newVal, oldVal) {
       // eslint-disable-next-line no-alert
       alert(`value changed from ${oldVal} to ${JSON.stringify(newVal)}`);
-      this.$router.push({ name: 'Details', query: { user: newVal.nickname } });
+      this.$router.push({ name: 'Details', query: { nickname: newVal.nickname } });
     },
   },
   created() {
