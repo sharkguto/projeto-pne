@@ -31,7 +31,7 @@ import {
   BotaoContainer,
   TimeCard,
   TimeNumber,
-  TimeText,
+  TimeText
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -64,11 +64,11 @@ const TripFinishStop = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().required("Name is required"),
-          password: Yup.string().min(6, "Password must have at least 6 digits"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
@@ -114,13 +114,13 @@ const TripFinishStop = () => {
       <ScrollView style={styles.viewSize}>
         <View style={styles.header}>
           <TouchableOpacity onPress={handleNavigateBack}>
-            <Icon name="arrow-left" size={25} color="#000" />
+            <Icon name="arrow-left" size={48} color="#000" />
           </TouchableOpacity>
           <Title>Encerrar Parada</Title>
           <Text></Text>
         </View>
         <Container>
-          <Card>
+          <Card style={styles.cardShadow}>
             <CardHeader>
               <CardTitle>Tempo de Parada</CardTitle>
             </CardHeader>
@@ -153,7 +153,7 @@ const TripFinishStop = () => {
             </CardHeader>
           </Card>
           <View style={styles.checkboxContainer}>
-          <CheckBox
+            <CheckBox
               value={isSelected}
               onValueChange={setSelection}
               style={styles.checkbox}
@@ -163,7 +163,7 @@ const TripFinishStop = () => {
             </Text>
           </View>
           <View style={styles.checkboxContainer}>
-          <CheckBox
+            <CheckBox
               value={toggleCheckBox}
               onValueChange={setSelection}
               style={styles.checkbox}
@@ -184,20 +184,31 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     display: "flex",
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   itemsContainer: {
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
+  },
+  cardShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
 
   item: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -214,29 +225,31 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
     fontSize: 14,
-    color: "#fff",
+    color: "#fff"
   },
   viewSize: {
     height: "100%",
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   checkboxContainer: {
     flexDirection: "row",
-    marginBottom: 10,
+    marginBottom: 10
   },
   checkbox: {
     alignSelf: "center",
     borderWidth: 2,
+    width: 24,
+    height: 24
   },
   label: {
-    margin: 8,
-  },
+    margin: 8
+  }
 });
 
 export default TripFinishStop;

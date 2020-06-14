@@ -54,8 +54,12 @@ export default {
     },
   },
   created() {
+    let url = 'http://localhost:8080/ranking-px/list';
+    if (process.env.NODE_ENV === 'production') {
+      url = 'http://localhost:8080/ranking-px/list';
+    }
     axios
-      .get('http://localhost:8080/ranking-px/list', null, {
+      .get(url, null, {
         headers: { 'x-api-key': 'token-auth-here' },
       })
       .then((response) => {
