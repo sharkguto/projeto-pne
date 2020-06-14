@@ -53,6 +53,10 @@ const TripStartStop = () => {
   function handleNavigateAlongamento() {
     navigation.navigate("Stretching");
   }
+
+  function handleNavigateTripCurrent() {
+    navigation.navigate("TripCurrent");
+  }
   
   function handleNavigateBack() {
     navigation.goBack();
@@ -76,7 +80,7 @@ const TripStartStop = () => {
             tempo sentado
           </InfoText>         
           <Button onPress={handleNavigateAlongamento}>Iniciar série de alongamento</Button>
-          <Button>Pular e iniciar parada</Button>
+          <Button onPress={handleNavigateTripCurrent}>Pular e iniciar parada</Button>
         </Container>
       </ScrollView>
     </>

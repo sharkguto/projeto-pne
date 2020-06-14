@@ -138,7 +138,9 @@ const TripCurrent = () => {
                     <TimeText>00</TimeText>
                   </TimeNumber>
                   <TimeNumber>
-                    <TimeText>{count}</TimeText>
+                    <TimeText>
+                      {count < 10 && "0"}
+                      {count}</TimeText>
                   </TimeNumber>
                 </TimeCard>
               </CardColumn>
@@ -159,7 +161,7 @@ const TripCurrent = () => {
             <CardHeader>
               <CardColumn>
                 <CountDown
-                  until={14000}
+                  until={19800}
                   size={20}
                   timeLabels={{
                     d: "Dias",
@@ -209,7 +211,7 @@ const TripCurrent = () => {
                 onPress={() => handleTripFinishStop()}
                 activeOpacity={0.6}
               >
-                <Icon name="map-pin" size={26} color="#fff" />
+                <Icon name="map-pin" size={40} color="#fff" />
                 <Text style={styles.itemTitle}>Encerrar Parada</Text>
               </TouchableOpacity>
             )}
