@@ -49,7 +49,9 @@ const DashBoard = () => {
   return (
     <>
       <Logo></Logo>
-      <ScrollView>
+      <ScrollView
+      style={styles.viewSize}
+      >
         <Container>
           <View>
             <Title></Title>
@@ -111,6 +113,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 16,
     marginBottom: 16
+  },
+
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
   },
 
   item: {
