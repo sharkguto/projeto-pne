@@ -52,14 +52,14 @@ const DashBoard = () => {
           </View>
           <Card>
             <TouchableOpacity onPress={handleNavigateTrip} style={styles.item}>
-              <Icon name="road" size={30} color="#fff" />
+              <Icon name="road" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Viagens</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={handleNavigateServico}
               style={styles.item}
             >
-              <Icon name="tools" size={30} color="#fff" />
+              <Icon name="tools" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Serviços Próximos</Text>
             </TouchableOpacity>
           </Card>
@@ -68,23 +68,31 @@ const DashBoard = () => {
               onPress={handleNavigateVehicle}
               style={styles.item}
             >
-              <Icon name="truck" size={30} color="#fff" />
+              <Icon name="truck" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Meus Veículos</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={handleNavigatePerfil}
               style={styles.item}
             >
-              <Icon name="user" size={30} color="#fff" />
+              <Icon name="user" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Meu Perfil</Text>
             </TouchableOpacity>
           </Card>
           <Card>
             <TouchableOpacity style={styles.item}>
-              <Icon name="envelope" size={30} color="#fff" />
+              <Icon name="envelope" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Chat PX</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={handleNavigatePerfil}
+              style={styles.item}
+            >
+              <Icon name="sign-out-alt" size={48} color="#fff" />
+              <Text style={styles.itemTitle}>Sair</Text>
+            </TouchableOpacity>
           </Card>
+          
           <CardNews>
             <News>Faça exercícios sempre que puder!</News>
           </CardNews>
@@ -102,6 +110,14 @@ const styles = StyleSheet.create({
   },
 
   item: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
     backgroundColor: "#CF2A27",
     borderWidth: 2,
     borderColor: "#CF2A27",
