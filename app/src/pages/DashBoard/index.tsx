@@ -38,6 +38,10 @@ const DashBoard = () => {
     navigation.navigate("Perfil");
   }
 
+  function handleNavigateLogout() {
+    navigation.navigate("Login");
+  }
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -48,7 +52,7 @@ const DashBoard = () => {
       <ScrollView>
         <Container>
           <View>
-            <Title>Bem vindo usuário!</Title>
+            <Title></Title>
           </View>
           <Card>
             <TouchableOpacity onPress={handleNavigateTrip} style={styles.item}>
@@ -85,16 +89,16 @@ const DashBoard = () => {
               <Text style={styles.itemTitle}>Chat PX</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={handleNavigatePerfil}
+              onPress={handleNavigateLogout}
               style={styles.item}
             >
               <Icon name="sign-out-alt" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Sair</Text>
             </TouchableOpacity>
           </Card>
-          
+
           <CardNews>
-            <News>Faça exercícios sempre que puder!</News>
+            <News></News>
           </CardNews>
         </Container>
       </ScrollView>
