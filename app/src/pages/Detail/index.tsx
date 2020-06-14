@@ -156,7 +156,7 @@ const Detail = () => {
           <Card style={[styles.shadow, styles.cardSize]}>
             <CardHeader>
               <View>
-                <CardTitle>João</CardTitle>
+                <CardTitle>João(#358) em 20/06/2020</CardTitle>
               </View>
               <Stars>
                 <Icon name="star" size={20} color="#000" />
@@ -168,7 +168,7 @@ const Detail = () => {
             </CardHeader>
 
             <CardText style={styles.cardFont}>
-              Este posto tem uma boa aréa de descanćo mas tive problemas no
+              Este posto tem uma boa aréa de descanço mas tive problemas no
               caminhão após abastercer nele.
             </CardText>
           </Card>
