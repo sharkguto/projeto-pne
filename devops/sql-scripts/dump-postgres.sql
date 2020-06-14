@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 12.2 (Ubuntu 12.2-4)
 
--- Started on 2020-06-13 13:20:07 -03
+-- Started on 2020-06-13 19:40:01 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,10 +23,11 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: pne
 --
 
+
 ALTER SCHEMA public OWNER TO pne;
 
 --
--- TOC entry 3122 (class 0 OID 0)
+-- TOC entry 3123 (class 0 OID 0)
 -- Dependencies: 4
 -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pne
 --
@@ -127,7 +128,7 @@ CREATE TABLE public.tbl_ranking_px (
 ALTER TABLE public.tbl_ranking_px OWNER TO pne;
 
 --
--- TOC entry 3123 (class 0 OID 0)
+-- TOC entry 3124 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: COLUMN tbl_ranking_px.points; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -136,7 +137,7 @@ COMMENT ON COLUMN public.tbl_ranking_px.points IS 'caso o motorista ultrapassar 
 
 
 --
--- TOC entry 3124 (class 0 OID 0)
+-- TOC entry 3125 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: COLUMN tbl_ranking_px.type_action; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -145,7 +146,7 @@ COMMENT ON COLUMN public.tbl_ranking_px.type_action IS 'colocar o tipo da pontua
 
 
 --
--- TOC entry 3125 (class 0 OID 0)
+-- TOC entry 3126 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: COLUMN tbl_ranking_px.id_trip; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -202,7 +203,7 @@ CREATE TABLE public.tbl_chat_community (
 ALTER TABLE public.tbl_chat_community OWNER TO pne;
 
 --
--- TOC entry 3126 (class 0 OID 0)
+-- TOC entry 3127 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: COLUMN tbl_chat_community.users_list; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -211,7 +212,7 @@ COMMENT ON COLUMN public.tbl_chat_community.users_list IS 'lista de usuarios que
 
 
 --
--- TOC entry 3127 (class 0 OID 0)
+-- TOC entry 3128 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: COLUMN tbl_chat_community.have_password; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -267,7 +268,7 @@ CREATE TABLE public.tbl_notifications (
 ALTER TABLE public.tbl_notifications OWNER TO pne;
 
 --
--- TOC entry 3128 (class 0 OID 0)
+-- TOC entry 3129 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN tbl_notifications.broadcast_message; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -276,7 +277,7 @@ COMMENT ON COLUMN public.tbl_notifications.broadcast_message IS 'mensagens em br
 
 
 --
--- TOC entry 3129 (class 0 OID 0)
+-- TOC entry 3130 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN tbl_notifications.lat_value; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -285,7 +286,7 @@ COMMENT ON COLUMN public.tbl_notifications.lat_value IS 'sjc';
 
 
 --
--- TOC entry 3130 (class 0 OID 0)
+-- TOC entry 3131 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: COLUMN tbl_notifications.long_value; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -326,7 +327,7 @@ CREATE TABLE public.tbl_point_stop (
 ALTER TABLE public.tbl_point_stop OWNER TO pne;
 
 --
--- TOC entry 3131 (class 0 OID 0)
+-- TOC entry 3132 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: COLUMN tbl_point_stop.stop_options_tags; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -400,7 +401,7 @@ CREATE TABLE public.tbl_trip (
 ALTER TABLE public.tbl_trip OWNER TO pne;
 
 --
--- TOC entry 3132 (class 0 OID 0)
+-- TOC entry 3133 (class 0 OID 0)
 -- Dependencies: 202
 -- Name: COLUMN tbl_trip.minutes_trip_at; Type: COMMENT; Schema: public; Owner: pne
 --
@@ -432,7 +433,8 @@ CREATE TABLE public.tbl_trip_stop (
     id bigint NOT NULL,
     created_at timestamp with time zone DEFAULT now(),
     return_trip_at timestamp with time zone,
-    id_trip bigint NOT NULL
+    id_trip bigint NOT NULL,
+    id_point_stop bigint
 );
 
 
@@ -519,7 +521,7 @@ ALTER TABLE public.tbl_user ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 3114 (class 0 OID 16696)
+-- TOC entry 3115 (class 0 OID 16696)
 -- Dependencies: 214
 -- Data for Name: tbl_chat; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -530,7 +532,7 @@ INSERT INTO public.tbl_chat OVERRIDING SYSTEM VALUE VALUES (3, 1, 3, 'lele', '20
 
 
 --
--- TOC entry 3112 (class 0 OID 16680)
+-- TOC entry 3113 (class 0 OID 16680)
 -- Dependencies: 212
 -- Data for Name: tbl_chat_community; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -539,15 +541,17 @@ INSERT INTO public.tbl_chat_community OVERRIDING SYSTEM VALUE VALUES (1, 1, '[1,
 
 
 --
--- TOC entry 3116 (class 0 OID 16718)
+-- TOC entry 3117 (class 0 OID 16718)
 -- Dependencies: 216
 -- Data for Name: tbl_notifications; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
+INSERT INTO public.tbl_notifications OVERRIDING SYSTEM VALUE VALUES (1, 'ocorreu um assalto na rodovia dos tamoios', '2020-06-13 22:38:51.088984+00', -23.1794399999999996, -45.8869400000000027, 15);
+INSERT INTO public.tbl_notifications OVERRIDING SYSTEM VALUE VALUES (2, '10% desconto no lanche de pernil', '2020-06-13 22:38:51.097534+00', -23.1794399999999996, -45.8869400000000027, 20);
 
 
 --
--- TOC entry 3104 (class 0 OID 16426)
+-- TOC entry 3105 (class 0 OID 16426)
 -- Dependencies: 204
 -- Data for Name: tbl_point_stop; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -557,7 +561,7 @@ INSERT INTO public.tbl_point_stop OVERRIDING SYSTEM VALUE VALUES (2, 231213123.1
 
 
 --
--- TOC entry 3106 (class 0 OID 16434)
+-- TOC entry 3107 (class 0 OID 16434)
 -- Dependencies: 206
 -- Data for Name: tbl_point_stop_review; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -577,7 +581,7 @@ INSERT INTO public.tbl_point_stop_review OVERRIDING SYSTEM VALUE VALUES (44, 2, 
 
 
 --
--- TOC entry 3110 (class 0 OID 16656)
+-- TOC entry 3111 (class 0 OID 16656)
 -- Dependencies: 210
 -- Data for Name: tbl_ranking_px; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -587,33 +591,37 @@ INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (3, 10, 'parada
 
 
 --
--- TOC entry 3102 (class 0 OID 16413)
+-- TOC entry 3103 (class 0 OID 16413)
 -- Dependencies: 202
 -- Data for Name: tbl_trip; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
-INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (1, 1, '2020-06-13 14:08:14.631911+00', 'opa', 'zum', '2020-06-13 16:18:09.418046+00', '02:09:54.786135');
+INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (2, 2, '2020-06-13 22:32:17.571175+00', 'zum', 'opa', NULL, NULL);
+INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (1, 1, '2020-06-12 14:08:14+00', 'opa', 'zum', '2020-06-13 22:37:25.710907+00', '08:29:11.710907');
 
 
 --
--- TOC entry 3108 (class 0 OID 16643)
+-- TOC entry 3109 (class 0 OID 16643)
 -- Dependencies: 208
 -- Data for Name: tbl_trip_stop; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
+INSERT INTO public.tbl_trip_stop OVERRIDING SYSTEM VALUE VALUES (2, '2020-06-13 22:32:50.239566+00', '2020-06-13 23:32:50+00', 2, 1);
+INSERT INTO public.tbl_trip_stop OVERRIDING SYSTEM VALUE VALUES (1, '2020-06-13 00:31:51+00', '2020-06-13 12:11:01+00', 1, 1);
 
 
 --
--- TOC entry 3100 (class 0 OID 16399)
+-- TOC entry 3101 (class 0 OID 16399)
 -- Dependencies: 200
 -- Data for Name: tbl_truck; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
 INSERT INTO public.tbl_truck OVERRIDING SYSTEM VALUE VALUES (1, 'panzer', 'gmf-1234', '2020-01-01', 1);
+INSERT INTO public.tbl_truck OVERRIDING SYSTEM VALUE VALUES (2, 'camarotruck', 'feb-1234', '2021-01-01', 2);
 
 
 --
--- TOC entry 3097 (class 0 OID 16385)
+-- TOC entry 3098 (class 0 OID 16385)
 -- Dependencies: 197
 -- Data for Name: tbl_user; Type: TABLE DATA; Schema: public; Owner: pne
 --
@@ -624,7 +632,7 @@ INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'ze italo', '402.
 
 
 --
--- TOC entry 3133 (class 0 OID 0)
+-- TOC entry 3134 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: ranking_px_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -633,7 +641,7 @@ SELECT pg_catalog.setval('public.ranking_px_id_seq', 3, true);
 
 
 --
--- TOC entry 3134 (class 0 OID 0)
+-- TOC entry 3135 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: tbl_chat_community_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -642,7 +650,7 @@ SELECT pg_catalog.setval('public.tbl_chat_community_id_seq', 1, true);
 
 
 --
--- TOC entry 3135 (class 0 OID 0)
+-- TOC entry 3136 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: tbl_chat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -651,16 +659,16 @@ SELECT pg_catalog.setval('public.tbl_chat_id_seq', 3, true);
 
 
 --
--- TOC entry 3136 (class 0 OID 0)
+-- TOC entry 3137 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: tbl_notifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
 
-SELECT pg_catalog.setval('public.tbl_notifications_id_seq', 1, false);
+SELECT pg_catalog.setval('public.tbl_notifications_id_seq', 2, true);
 
 
 --
--- TOC entry 3137 (class 0 OID 0)
+-- TOC entry 3138 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: tbl_point_stop_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -669,7 +677,7 @@ SELECT pg_catalog.setval('public.tbl_point_stop_id_seq', 2, true);
 
 
 --
--- TOC entry 3138 (class 0 OID 0)
+-- TOC entry 3139 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: tbl_point_stop_review_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -678,34 +686,34 @@ SELECT pg_catalog.setval('public.tbl_point_stop_review_id_seq', 44, true);
 
 
 --
--- TOC entry 3139 (class 0 OID 0)
+-- TOC entry 3140 (class 0 OID 0)
 -- Dependencies: 201
 -- Name: tbl_trip_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
 
-SELECT pg_catalog.setval('public.tbl_trip_id_seq', 1, true);
-
-
---
--- TOC entry 3140 (class 0 OID 0)
--- Dependencies: 207
--- Name: tbl_trip_stop_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
---
-
-SELECT pg_catalog.setval('public.tbl_trip_stop_id_seq', 1, false);
+SELECT pg_catalog.setval('public.tbl_trip_id_seq', 2, true);
 
 
 --
 -- TOC entry 3141 (class 0 OID 0)
--- Dependencies: 199
--- Name: tbl_truck_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
+-- Dependencies: 207
+-- Name: tbl_trip_stop_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
 
-SELECT pg_catalog.setval('public.tbl_truck_id_seq', 1, true);
+SELECT pg_catalog.setval('public.tbl_trip_stop_id_seq', 2, true);
 
 
 --
 -- TOC entry 3142 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: tbl_truck_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
+--
+
+SELECT pg_catalog.setval('public.tbl_truck_id_seq', 2, true);
+
+
+--
+-- TOC entry 3143 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: tbl_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
@@ -831,7 +839,7 @@ ALTER TABLE ONLY public.tbl_user
 
 
 --
--- TOC entry 2975 (class 2620 OID 16619)
+-- TOC entry 2976 (class 2620 OID 16619)
 -- Name: tbl_point_stop_review tbl_point_stop_review_but; Type: TRIGGER; Schema: public; Owner: pne
 --
 
@@ -839,7 +847,7 @@ CREATE TRIGGER tbl_point_stop_review_but AFTER INSERT OR UPDATE ON public.tbl_po
 
 
 --
--- TOC entry 2974 (class 2620 OID 16732)
+-- TOC entry 2975 (class 2620 OID 16732)
 -- Name: tbl_trip tbl_trip_but; Type: TRIGGER; Schema: public; Owner: pne
 --
 
@@ -847,7 +855,7 @@ CREATE TRIGGER tbl_trip_but AFTER UPDATE ON public.tbl_trip FOR EACH ROW EXECUTE
 
 
 --
--- TOC entry 2972 (class 2606 OID 16701)
+-- TOC entry 2973 (class 2606 OID 16701)
 -- Name: tbl_chat tbl_chat_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
 --
 
@@ -856,7 +864,7 @@ ALTER TABLE ONLY public.tbl_chat
 
 
 --
--- TOC entry 2973 (class 2606 OID 16706)
+-- TOC entry 2974 (class 2606 OID 16706)
 -- Name: tbl_chat tbl_chat_user_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
 --
 
@@ -883,7 +891,7 @@ ALTER TABLE ONLY public.tbl_point_stop_review
 
 
 --
--- TOC entry 2970 (class 2606 OID 16667)
+-- TOC entry 2971 (class 2606 OID 16667)
 -- Name: tbl_ranking_px tbl_ranking_px_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
 --
 
@@ -892,7 +900,7 @@ ALTER TABLE ONLY public.tbl_ranking_px
 
 
 --
--- TOC entry 2971 (class 2606 OID 16672)
+-- TOC entry 2972 (class 2606 OID 16672)
 -- Name: tbl_ranking_px tbl_ranking_px_trip_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
 --
 
@@ -919,6 +927,15 @@ ALTER TABLE ONLY public.tbl_trip_stop
 
 
 --
+-- TOC entry 2970 (class 2606 OID 24822)
+-- Name: tbl_trip_stop tbl_trip_stop_point_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
+--
+
+ALTER TABLE ONLY public.tbl_trip_stop
+    ADD CONSTRAINT tbl_trip_stop_point_fk FOREIGN KEY (id_point_stop) REFERENCES public.tbl_point_stop(id);
+
+
+--
 -- TOC entry 2965 (class 2606 OID 16406)
 -- Name: tbl_truck tbl_truck_fk; Type: FK CONSTRAINT; Schema: public; Owner: pne
 --
@@ -927,7 +944,7 @@ ALTER TABLE ONLY public.tbl_truck
     ADD CONSTRAINT tbl_truck_fk FOREIGN KEY (id_user) REFERENCES public.tbl_user(id);
 
 
--- Completed on 2020-06-13 13:20:07 -03
+-- Completed on 2020-06-13 19:40:01 -03
 
 --
 -- PostgreSQL database dump complete
