@@ -59,7 +59,7 @@ const Vehicle = () => {
             <Text></Text>
           </View>
           <View style={styles.itemsContainer}></View>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
                 <CardText>Apelido: Grandão</CardText>
@@ -84,7 +84,7 @@ const Vehicle = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
                 <CardText>Apelido: Grandão</CardText>
@@ -140,6 +140,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 16,
     marginBottom: 16
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
 
   item: {
