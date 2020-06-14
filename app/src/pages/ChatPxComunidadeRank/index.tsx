@@ -10,7 +10,7 @@ import {
   Alert,
   TouchableOpacity,
   Modal,
-  TouchableHighlight,
+  TouchableHighlight
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { Feather as IconF } from "@expo/vector-icons";
@@ -33,7 +33,7 @@ import {
   ModalButtons,
   BackChat,
   ChatInput,
-  ChatInputSend,
+  ChatInputSend
 } from "./styles";
 import Constants from "expo-constants";
 
@@ -60,11 +60,11 @@ const ChatPxComunidadeRank = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().required("Name is required"),
-          password: Yup.string().min(6, "Password must have at least 6 digits"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
@@ -109,6 +109,9 @@ const ChatPxComunidadeRank = () => {
             <TouchableOpacity onPress={handleNavigateBack}>
               <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
+          </View>
+          <View style={styles.header}>
+            <Icon name="medal" size={24} color="#000"></Icon>
             <Title>Ranking da comunidade</Title>
             <Text></Text>
           </View>
@@ -119,7 +122,7 @@ const ChatPxComunidadeRank = () => {
                 <CardTitle>1 - Pedro Alves</CardTitle>
               </CardColumn>
               <CardColumn>
-              <CardText>900 PX</CardText>
+                <CardText>900 PX</CardText>
               </CardColumn>
             </CardHeader>
           </Card>
@@ -129,7 +132,7 @@ const ChatPxComunidadeRank = () => {
                 <CardTitle>2 - Mario Silva</CardTitle>
               </CardColumn>
               <CardColumn>
-              <CardText>840 PX</CardText>
+                <CardText>840 PX</CardText>
               </CardColumn>
             </CardHeader>
           </Card>
@@ -139,7 +142,7 @@ const ChatPxComunidadeRank = () => {
                 <CardTitle>3 - Luiz Pereira</CardTitle>
               </CardColumn>
               <CardColumn>
-              <CardText>750 PX</CardText>
+                <CardText>750 PX</CardText>
               </CardColumn>
             </CardHeader>
           </Card>
@@ -156,13 +159,13 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     justifyContent: "center",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
   itemsContainer: {
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   header: {
     flex: 1,
@@ -170,29 +173,29 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     justifyContent: "space-between",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
 
   shadow: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
-    elevation: 5,
+    elevation: 5
   },
   viewSize: {
     height: "100%",
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 22
   },
   modalView: {
     margin: 20,
@@ -203,17 +206,17 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 5
   },
   openButton: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -230,26 +233,26 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center"
   },
   modalText: {
     marginBottom: 15,
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 18
   },
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
     fontSize: 16,
-    color: "#fff",
+    color: "#fff"
   },
   margimView: {
-    marginTop:15,
+    marginTop: 15
   }
 });
 
