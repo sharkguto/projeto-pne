@@ -44,7 +44,7 @@ namespace pe_na_estrada_api
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CCR hackathon - pé na estrada");
             });
 
             if (env.IsDevelopment())
