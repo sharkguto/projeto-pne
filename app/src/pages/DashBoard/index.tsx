@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,32 +17,24 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
-import {
-  Container,
-  Title,
-  Card,
-  News,
-  CardNews
-} from "./styles";
-
+import { Container, Title, Card, News, CardNews } from "./styles";
 
 const DashBoard = () => {
-
   const navigation = useNavigation();
-  
-  function handleNavigateTrip () {
+
+  function handleNavigateTrip() {
     navigation.navigate("Trip");
   }
-  
-  function handleNavigateServico () {
+
+  function handleNavigateServico() {
     navigation.navigate("Servico");
   }
 
-  function handleNavigateVehicle () {
+  function handleNavigateVehicle() {
     navigation.navigate("Vehicle");
   }
 
-  function handleNavigatePerfil () {
+  function handleNavigatePerfil() {
     navigation.navigate("Perfil");
   }
 
@@ -52,61 +44,69 @@ const DashBoard = () => {
 
   return (
     <>
-          <Logo></Logo>      
-          <ScrollView>
-          <Container>                      
-            <View>
-              <Title>Bem vindo usuário!</Title>
-            </View>
-            <Card>
-              <TouchableOpacity onPress={handleNavigateTrip} style={styles.item}>
+      <Logo></Logo>
+      <ScrollView>
+        <Container>
+          <View>
+            <Title>Bem vindo usuário!</Title>
+          </View>
+          <Card>
+            <TouchableOpacity onPress={handleNavigateTrip} style={styles.item}>
               <Icon name="road" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Viagens</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleNavigateServico} style={styles.item}>
+            <TouchableOpacity
+              onPress={handleNavigateServico}
+              style={styles.item}
+            >
               <Icon name="tools" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Serviços Próximos</Text>
             </TouchableOpacity>
-            </Card> 
-            <Card>
-              <TouchableOpacity onPress={handleNavigateVehicle} style={styles.item}>
+          </Card>
+          <Card>
+            <TouchableOpacity
+              onPress={handleNavigateVehicle}
+              style={styles.item}
+            >
               <Icon name="truck" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Meus Veículos</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleNavigatePerfil} style={styles.item}>
+            <TouchableOpacity
+              onPress={handleNavigatePerfil}
+              style={styles.item}
+            >
               <Icon name="user" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Meu Perfil</Text>
             </TouchableOpacity>
-            </Card>
-            <Card>
-              <TouchableOpacity style={styles.item}>
+          </Card>
+          <Card>
+            <TouchableOpacity style={styles.item}>
               <Icon name="envelope" size={30} color="#fff" />
               <Text style={styles.itemTitle}>Chat PX</Text>
             </TouchableOpacity>
-            </Card>   
-            <CardNews>
-              <News>Faça exercícios sempre que puder!</News>
-            </CardNews>              
-          </Container>      
-          </ScrollView> 
+          </Card>
+          <CardNews>
+            <News>Faça exercícios sempre que puder!</News>
+          </CardNews>
+        </Container>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  
-   itemsContainer: {
+  itemsContainer: {
     flexDirection: "row",
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 16
   },
 
   item: {
     backgroundColor: "#CF2A27",
     borderWidth: 2,
-    borderColor: "#000",
-    height: 120,
-    width: 120,
+    borderColor: "#CF2A27",
+    height: 140,
+    width: 140,
     borderRadius: 1,
     paddingHorizontal: 16,
     paddingTop: 20,
@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
 
   selectedItem: {
     borderColor: "#34CB79",
-    borderWidth: 2,
+    borderWidth: 2
   },
 
   itemTitle: {
@@ -127,8 +127,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 19,
     color: "#fff"
-  },
+  }
 });
-
 
 export default DashBoard;
