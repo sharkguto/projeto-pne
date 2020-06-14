@@ -42,6 +42,10 @@ const DashBoard = () => {
     navigation.navigate("Login");
   }
 
+  function handleNavigateChatPx() {
+    navigation.navigate("ChatPx");
+  }
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -86,7 +90,9 @@ const DashBoard = () => {
             </TouchableOpacity>
           </Card>
           <Card>
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity
+            onPress={handleNavigateChatPx}
+            style={styles.item}>
               <Icon name="envelope" size={48} color="#fff" />
               <Text style={styles.itemTitle}>Chat PX</Text>
             </TouchableOpacity>
