@@ -1,6 +1,16 @@
 version: '3'
  
 services:
+  backend-pne:
+    build:
+      context: .
+      dockerfile: devops/dotnet.dockerfile
+    ports:
+      - "5001:5001"
+      - "5000:5000"
+    environment: 
+      - ENVIRONMENT=${ENVIRONMENT}
+      - CONNECTION_STRING=${CONNECTION_STRING}
   db-postgres:
     network_mode: host
     build:
