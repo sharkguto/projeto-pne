@@ -100,7 +100,7 @@ const TripPoints = () => {
             <Text></Text>
           </View>
           <Container>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Viagem Finalizada</CardText>
@@ -115,7 +115,7 @@ const TripPoints = () => {
                 </CardColumn>
               </CardHeader>
             </Card>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Viagem Finalizada</CardText>
@@ -130,7 +130,7 @@ const TripPoints = () => {
                 </CardColumn>
               </CardHeader>
             </Card>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Viagem Finalizada</CardText>
@@ -145,7 +145,7 @@ const TripPoints = () => {
                 </CardColumn>
               </CardHeader>
             </Card>
-            <Card>
+            <Card style={styles.shadow}>
               <CardHeader>
                 <CardColumn>
                   <CardText>Viagem Finalizada</CardText>
@@ -179,6 +179,17 @@ const styles = StyleSheet.create({
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762"
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   }
 });
 
