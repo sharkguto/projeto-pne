@@ -15,14 +15,18 @@ namespace pe_na_estrada_api.BLL
             return await pTable.Where(x => x.IdTrip == iTripId).ToListAsync();
         }
 
-        public async Task<List<Ranking>> GetCalculatedRanking(pneContext pContext)
+        public async Task<List<Ranking>> GetCalculatedRanking(pneContext pContext, String nickname = null)
         {
             string sQuery = "select us.nickname as nickname, sum (trp.points ) as points, " +
-            "max(trp.created_at ) as last_active_date, us.name as name, " +
+            "max(trp.created_at ) as last_active_date, us.name as name, us.cellphone as  phone, " +
             "ROW_NUMBER() OVER ( order by sum(trp.points) desc, max(trp.created_at) asc ) as position " +
             "from tbl_ranking_px trp " +
-            "inner join tbl_user us on trp.id_user =us.id " +
-            "group by us.name,us.nickname ";
+            "inner join tbl_user us on trp.id_user =us.id ";
+            if (nickname != null)
+            {
+                sQuery += " where us.nickname = '" + nickname + "' ";
+            }
+            sQuery += "group by us.name,us.nickname,us.cellphone ";
 
             List<Ranking> pRankingList = new List<Ranking>();
             using (var command = pContext.Database.GetDbConnection().CreateCommand())
@@ -37,6 +41,7 @@ namespace pe_na_estrada_api.BLL
                         Ranking pRanking = new Ranking();
                         pRanking.Nickname = result["nickname"].ToString();
                         pRanking.Name = result["name"].ToString();
+                        pRanking.Phone = result["phone"].ToString();
                         pRanking.Points = (decimal)result["points"];
                         pRanking.Position = (Int64)result["position"];
                         pRanking.LastActiveDate = (DateTime)result["last_active_date"];

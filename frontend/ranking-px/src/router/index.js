@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Ranking from '../views/Ranking.vue';
+import Details from '../views/Details.vue';
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'Ranking',
     component: Ranking,
+  },
+  {
+    path: '/details',
+    name: 'Details',
+    component: Details,
   },
   {
     path: '/about',

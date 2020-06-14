@@ -17,9 +17,12 @@
   <div class="container" v-if="listRankingPx">
     <div class="">
       <b-table
+          @dbclick="moreDetails"
           :data="listRankingPx"
           :columns="columns"
           paginated
+          focusable
+          :selected.sync="selected"
           per-page="20">
       </b-table>
     </div>
@@ -36,6 +39,19 @@ export default {
   props: {
     title: String,
     subTitle: String,
+  },
+  methods: {
+    moreDetails(xpto) {
+      // eslint-disable-next-line no-alert
+      alert(xpto);
+    },
+  },
+  watch: {
+    selected(newVal, oldVal) {
+      // eslint-disable-next-line no-alert
+      alert(`value changed from ${oldVal} to ${JSON.stringify(newVal)}`);
+      this.$router.push({ name: 'Details', query: { user: newVal.nickname } });
+    },
   },
   created() {
     axios
@@ -55,6 +71,7 @@ export default {
   },
   data() {
     return {
+      selected: null,
       listRankingPx: null,
       columns: [
         {
