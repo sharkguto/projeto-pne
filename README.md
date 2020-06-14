@@ -18,17 +18,24 @@ so: ubuntu
 
 ## como executar
 
-1. na pasta raiz do projeto rodar o seguinte comando.
+1. criar um arquivo `.env` na raiz do projeto, conforme exemplo abaixo:
+
+    ```bash
+    ENVIRONMENT=DEV
+    CONNECTION_STRING=Host=localhost;Database=pne;Username=pne;Password=pne
+    ```
+
+2. na pasta raiz do projeto rodar o seguinte comando.
 
     ```bash
     docker-compose up --build
     ```
 
-2. Apos a inicialização do projeto, acessar a url do ranking PX, para garantir que a api esta funcional
+3. Apos a inicialização do projeto, acessar a url do ranking PX, para garantir que a api esta funcional
 
     [ranking-px](http://localhost:8080/ranking-px)
 
-3. dentro da pasta "./app" , executar os seguintes comandos:
+4. dentro da pasta "./app" , executar os seguintes comandos:
 
     ```bash
     # install expo global
@@ -41,13 +48,13 @@ so: ubuntu
     npm start
     ```
 
-4. instalar o expo no seu celular
+5. instalar o expo no seu celular
 
     [expo-android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en)
 
     [expo-ios](https://apps.apple.com/br/app/expo-client/id982107779)
 
-5. escanear o qrcode do expo e rodar o app
+6. escanear o qrcode do expo e rodar o app
 
     ![./docs/running.png](./docs/scanear.png)
 
