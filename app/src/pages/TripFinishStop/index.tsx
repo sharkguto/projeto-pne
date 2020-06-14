@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,10 +9,10 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
-  CheckBox,
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import CheckBox from "@react-native-community/checkbox";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -29,6 +29,9 @@ import {
   CardTime,
   Rota,
   BotaoContainer,
+  TimeCard,
+  TimeNumber,
+  TimeText,
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -48,6 +51,7 @@ interface SignUpFormData {
 const TripFinishStop = () => {
   const [isSelected, setSelection] = useState(false);
 
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   const formRef = useRef<FormHandles>(null);
 
@@ -95,6 +99,15 @@ const TripFinishStop = () => {
     navigation.goBack();
   }
 
+  let [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let id = setInterval(() => {
+      setCount(count + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  });
+
   return (
     <>
       <Logo></Logo>
@@ -113,24 +126,55 @@ const TripFinishStop = () => {
             </CardHeader>
             <CardHeader>
               <CardColumn>
-                <CardTime>00d01h30m39s</CardTime>
+                <TimeCard>
+                  <TimeNumber>
+                    <TimeText>00</TimeText>
+                  </TimeNumber>
+                  <TimeNumber>
+                    <TimeText>01</TimeText>
+                  </TimeNumber>
+                  <TimeNumber>
+                    <TimeText>30</TimeText>
+                  </TimeNumber>
+                  <TimeNumber>
+                    <TimeText>
+                      {count < 10 && "0"}
+                      {count}
+                    </TimeText>
+                  </TimeNumber>
+                </TimeCard>
               </CardColumn>
+            </CardHeader>
+            <CardHeader style={{ paddingLeft: 15 }}>
+              <Text style={{ paddingLeft: 5 }}> Dias</Text>
+              <Text style={{ paddingLeft: 10 }}> Horas</Text>
+              <Text style={{ paddingLeft: 5 }}> Minutos</Text>
+              <Text style={{ paddingLeft: 5 }}> Segundos</Text>
             </CardHeader>
           </Card>
           <View style={styles.checkboxContainer}>
             <CheckBox
-              value={isSelected}
-              onValueChange={setSelection}
-              style={styles.checkbox}
+              disabled={false}
+              value={toggleCheckBox}
+              onValueChange={() =>
+                toggleCheckBox
+                  ? setToggleCheckBox(false)
+                  : setToggleCheckBox(true)
+              }
             />
-            <Text style={styles.label}>Você realizou alguma refeição durante
-esta parada?</Text>
+            <Text style={styles.label}>
+              Você realizou alguma refeição durante esta parada?
+            </Text>
           </View>
           <View style={styles.checkboxContainer}>
             <CheckBox
+              disabled={false}
               value={isSelected}
-              onValueChange={setSelection}
-              style={styles.checkbox}
+              onValueChange={() =>
+                isSelected
+                  ? setSelection(false)
+                  : setSelection(true)
+              }
             />
             <Text style={styles.label}>Você descansou/cochilou/dormiu?</Text>
           </View>

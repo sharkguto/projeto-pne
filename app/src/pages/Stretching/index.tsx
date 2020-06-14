@@ -71,11 +71,15 @@ const Stretching = () => {
     }
 
     setExercicio(exercicio + 1);
+    setButton(true);
   }
 
   const handleStart = useCallback(
      () => {
       setCount(count + 5);
+      if(count >= 5) {
+        setButton(false);
+      }     
     },
     [count],
   );
