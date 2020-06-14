@@ -15,7 +15,9 @@
 </section>
 <section>
   <div class="container" v-if="listRankingPx">
-    {{listRankingPx}}
+    <div v-for="(item, index) in listRankingPx[0]" :key="index">
+    {{ index }} - {{ item }}
+    </div>
   </div>
 </section>
 </div>
@@ -32,8 +34,9 @@ export default {
   },
   created() {
     axios
-      .get('http://localhost:8080/ranking-px/list', null, {
+      .get('http://localhost:8080/ranking-px/list', {
         headers: { 'x-api-key': 'token-auth-here' },
+        params: { nickname: this.$route.query.nickname },
       })
       .then((response) => {
         if (response.status === 200) {

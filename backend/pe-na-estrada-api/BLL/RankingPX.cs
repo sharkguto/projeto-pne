@@ -41,10 +41,14 @@ namespace pe_na_estrada_api.BLL
                         Ranking pRanking = new Ranking();
                         pRanking.Nickname = result["nickname"].ToString();
                         pRanking.Name = result["name"].ToString();
-                        pRanking.Phone = result["phone"].ToString();
+                        if (nickname != null)
+                        {
+                            pRanking.Phone = result["phone"].ToString();
+                            pRanking.LastActiveDate = (DateTime)result["last_active_date"];
+                        }
                         pRanking.Points = (decimal)result["points"];
                         pRanking.Position = (Int64)result["position"];
-                        pRanking.LastActiveDate = (DateTime)result["last_active_date"];
+
 
                         pRankingList.Add(pRanking);
                     }
