@@ -19,10 +19,10 @@ namespace pe_na_estrada_api.BLL
         {
             string sQuery = "select us.nickname as nickname, sum (trp.points ) as points, " +
             "max(trp.created_at ) as last_active_date, us.name as name, " +
-            "ROW_NUMBER() OVER ( ORDER BY sum(trp.points) DESC) as position " +
+            "ROW_NUMBER() OVER ( order by sum(trp.points) desc, max(trp.created_at) desc ) as position " +
             "from tbl_ranking_px trp " +
             "inner join tbl_user us on trp.id_user =us.id " +
-            "group by us.name,us.nickname";
+            "group by us.name,us.nickname ";
 
             List<Ranking> pRankingList = new List<Ranking>();
             using (var command = pContext.Database.GetDbConnection().CreateCommand())
