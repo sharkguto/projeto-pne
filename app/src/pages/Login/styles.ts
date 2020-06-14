@@ -34,7 +34,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
   right: 0;
   background: #9e260e;
   border-top-width: 1px;
-  border-color: #9e260e;
+  border-color: #fff;
   padding: 16px 0 ${16 + getBottomSpace()}px;
   justify-content: center;
   align-items: center;

@@ -143,13 +143,13 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 32,
+    padding: 0,
   },
   marginLogo: {
-    marginBottom: 30
+    marginBottom: 0
   },
   botaoCreate: {
-    marginTop:50
+    marginTop:0
   }
 });
 

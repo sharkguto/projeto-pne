@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
+import { Feather as IconF } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Input from "../../components/Input";
@@ -53,13 +54,13 @@ const Vehicle = () => {
         <Container>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title>Meus Veículos</Title>
             <Text></Text>
           </View>
           <View style={styles.itemsContainer}></View>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
                 <CardText>Apelido: Grandão</CardText>
@@ -84,7 +85,7 @@ const Vehicle = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
                 <CardText>Apelido: Grandão</CardText>
@@ -140,6 +141,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 16,
     marginBottom: 16
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
 
   item: {
