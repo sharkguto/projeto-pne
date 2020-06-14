@@ -9,7 +9,7 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
-  CheckBox,
+  CheckBox
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,17 +17,12 @@ import { useNavigation } from "@react-navigation/native";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
-import {
-  Container,
-  Title,
-  RankText,
-  InfoText
-} from "./styles";
+import { Container, Title, RankText, InfoText } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
 
-import * as Yup from 'yup';
-import getValidationErrors from '../../utils/getValidationErrors';
+import * as Yup from "yup";
+import getValidationErrors from "../../utils/getValidationErrors";
 
 interface SignUpFormData {
   name: string;
@@ -39,7 +34,6 @@ interface SignUpFormData {
 }
 
 const Perfil = () => {
-
   const phoneInputRef = useRef<TextInput>(null);
   const cpfInputRef = useRef<TextInput>(null);
   const nascimentoInputRef = useRef<TextInput>(null);
@@ -55,17 +49,17 @@ const Perfil = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          name: Yup.string().required('Name is required'),
-          password: Yup.string().min(6, 'Password must have at least 6 digits'),
+          name: Yup.string().required("Name is required"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
 
-        Alert.alert('Account successfully created!', 'Now you can login');
+        Alert.alert("Account successfully created!", "Now you can login");
 
         navigation.goBack();
       } catch (err) {
@@ -75,18 +69,18 @@ const Perfil = () => {
         }
 
         Alert.alert(
-          'Registration Error',
-          'An error ocurred when trying to sign up',
+          "Registration Error",
+          "An error ocurred when trying to sign up"
         );
       }
     },
-    [navigation],
+    [navigation]
   );
 
-  function goNavigatePoints () {
+  function goNavigatePoints() {
     navigation.navigate("Points");
   }
-  function handleNavigateBack () {
+  function handleNavigateBack() {
     navigation.goBack();
   }
 
@@ -94,17 +88,19 @@ const Perfil = () => {
     <>
       <Logo></Logo>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled>
-        <ScrollView
-        >
+        <ScrollView style={styles.viewSize}>
           <View style={styles.header}>
-              <TouchableOpacity onPress={handleNavigateBack}>
-                <Icon name="arrow-left" size={25} color="#000" />
-              </TouchableOpacity>
-              <Title>Meu Perfil</Title>
-              <Text></Text>
-            </View>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Icon name="arrow-left" size={25} color="#000" />
+            </TouchableOpacity>
+            <Title>Meu Perfil</Title>
+            <Text></Text>
+          </View>
           <Container>
-            <Image style={styles.profile} source={require('../../assets/perfil.jpg')}/>
+            <Image
+              style={styles.profile}
+              source={require("../../assets/perfil.jpg")}
+            />
             <RankText>PX Ranking: Posição #10</RankText>
             <InfoText>Ótimo trabalho! Continue melhorando!</InfoText>
             <Form ref={formRef} onSubmit={handleSignUp}>
@@ -199,7 +195,6 @@ const Perfil = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 8,
@@ -211,11 +206,14 @@ const styles = StyleSheet.create({
   },
   profile: {
     borderRadius: 120,
-    width:120,
-    height:120,
-    marginBottom:30
+    width: 120,
+    height: 120,
+    marginBottom: 30
+  },
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
   }
 });
-
 
 export default Perfil;

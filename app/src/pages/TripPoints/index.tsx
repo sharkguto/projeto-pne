@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -27,8 +27,8 @@ import {
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
 
-import * as Yup from 'yup';
-import getValidationErrors from '../../utils/getValidationErrors';
+import * as Yup from "yup";
+import getValidationErrors from "../../utils/getValidationErrors";
 
 interface SignUpFormData {
   name: string;
@@ -40,7 +40,6 @@ interface SignUpFormData {
 }
 
 const TripPoints = () => {
-
   const destinoInputRef = useRef<TextInput>(null);
 
   const formRef = useRef<FormHandles>(null);
@@ -53,17 +52,17 @@ const TripPoints = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          name: Yup.string().required('Name is required'),
-          password: Yup.string().min(6, 'Password must have at least 6 digits'),
+          name: Yup.string().required("Name is required"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
 
-        Alert.alert('Account successfully created!', 'Now you can login');
+        Alert.alert("Account successfully created!", "Now you can login");
 
         navigation.goBack();
       } catch (err) {
@@ -73,18 +72,18 @@ const TripPoints = () => {
         }
 
         Alert.alert(
-          'Registration Error',
-          'An error ocurred when trying to sign up',
+          "Registration Error",
+          "An error ocurred when trying to sign up"
         );
       }
     },
-    [navigation],
+    [navigation]
   );
 
-  function goNavigatePoints () {
+  function goNavigatePoints() {
     navigation.navigate("Points");
   }
-  function handleNavigateBack () {
+  function handleNavigateBack() {
     navigation.goBack();
   }
 
@@ -92,8 +91,7 @@ const TripPoints = () => {
     <>
       <Logo></Logo>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled>
-        <ScrollView
-        >
+        <ScrollView style={styles.viewSize}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <Icon name="arrow-left" size={25} color="#000" />
@@ -169,7 +167,6 @@ const TripPoints = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 8,
@@ -179,7 +176,10 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: "#fbd762"
   },
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
+  }
 });
-
 
 export default TripPoints;
