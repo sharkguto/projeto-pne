@@ -36,7 +36,7 @@ so: ubuntu
 
 3. Apos a inicialização do projeto, acessar a url do ranking PX, para garantir que a api esta funcional
 
-    [ranking-px](http://localhost:8080/ranking-px)
+    [swagger](http://localhost:8080/swagger/index.html)
 
 4. dentro da pasta "./app" , executar os seguintes comandos:
 
