@@ -195,13 +195,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#CF2A27",
     borderWidth: 2,
     borderColor: "#CF2A27",
-<<<<<<< HEAD
     height: 90,
     width: 95,
-=======
-    height: 110,
-    width: 150,
->>>>>>> 09e9adb75adcf2b589fc7ec18920b2f4c806fcd6
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
