@@ -11,17 +11,16 @@
         {{subTitle}}
       </h2>
     </div>
-    <div class="hello">
-
-  </div>
   </div>
 </section>
 <section>
-  <div class="columns is-mobile" v-if="listRankingPx">
-    <div class="column">
+  <div class="container" v-if="listRankingPx">
+    <div class="">
       <b-table
           :data="listRankingPx"
-          :columns="columns">
+          :columns="columns"
+          paginated
+          per-page="20">
       </b-table>
     </div>
   </div>
@@ -64,19 +63,24 @@ export default {
           width: '40',
           numeric: true,
           sortable: true,
+          centered: true,
         },
         {
           field: 'points',
           label: 'Pontos',
           width: '40',
           numeric: true,
+          centered: true,
         },
         {
           field: 'nickname',
           label: 'Apelido',
+          centered: true,
+          searchable: true,
         },
         {
           field: 'name',
+          centered: true,
           label: 'Nome',
         },
         // {
