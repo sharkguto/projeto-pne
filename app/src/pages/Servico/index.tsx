@@ -6,6 +6,7 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 // import api from '../../services/api';
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
+import { Feather as IconF } from "@expo/vector-icons";
 
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
@@ -101,7 +102,7 @@ const Servico = () => {
         <View style={styles.container}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
-              <Icon name="arrow-left" size={25} color="#000" />
+              <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
             <Title></Title>
             <Text></Text>
