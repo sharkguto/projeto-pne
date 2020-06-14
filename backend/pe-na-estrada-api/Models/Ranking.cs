@@ -8,6 +8,7 @@ namespace pe_na_estrada_api.Models
     {
         public string Nickname { get; set; }
         public string Name { get; set; }
+        public string Phone { get; set; }
         public decimal Points { get; set; }
         public Int64 Position { get; set; }
         public DateTime LastActiveDate { get; set; }

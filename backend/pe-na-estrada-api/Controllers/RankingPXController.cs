@@ -22,9 +22,9 @@ namespace pe_na_estrada_api.Controllers
 
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<List<Ranking>>> GetCalculatedRanking([FromServices] pneContext pContext)
+        public async Task<ActionResult<List<Ranking>>> GetCalculatedRanking([FromServices] pneContext pContext, String nickname)
         {
-            return await new RankingPX().GetCalculatedRanking(pContext);
+            return await new RankingPX().GetCalculatedRanking(pContext, nickname);
         }
     }
 }
