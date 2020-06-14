@@ -4,10 +4,10 @@
   <div class="hero-body">
     <div class="container">
       <img alt="Vue logo" src="../assets/logo.png">
-      <h1 class="title">
+      <h1 class="title ccr-vermelho">
         {{ title }}
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle ccr-vermelho">
         {{subTitle}}
       </h2>
     </div>
@@ -40,17 +40,14 @@ export default {
     title: String,
     subTitle: String,
   },
-  methods: {
-    moreDetails(xpto) {
-      // eslint-disable-next-line no-alert
-      alert(xpto);
-    },
-  },
+
   watch: {
     selected(newVal, oldVal) {
       // eslint-disable-next-line no-alert
-      alert(`value changed from ${oldVal} to ${JSON.stringify(newVal)}`);
-      this.$router.push({ name: 'Details', query: { nickname: newVal.nickname } });
+      // alert(`value changed from ${oldVal} to ${JSON.stringify(newVal)}`);
+      if (oldVal || newVal) {
+        this.$router.push({ name: 'Details', query: { nickname: newVal.nickname } });
+      }
     },
   },
   created() {
@@ -116,6 +113,7 @@ export default {
 
 .ccr-vermelho {
   background-color: #CF2A27;
+  color: white;
 }
 h3 {
   margin: 40px 0 0;
