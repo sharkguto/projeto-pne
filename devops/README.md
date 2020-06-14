@@ -146,4 +146,9 @@ $BODY$
 language plpgsql;
 
 
+select us.nickname , sum (trp.points ), max(trp.created_at ) as last_active_date 
+from tbl_ranking_px trp 
+inner join tbl_user us on trp.id_user =us.id 
+group by us.nickname 
+
 ```
