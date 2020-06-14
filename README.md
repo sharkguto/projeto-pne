@@ -65,3 +65,15 @@ so: ubuntu
 
     ![executando-celular](./docs/running.jpeg)
 
+7. Visualizar ranking geral , entre na pasta frontend
+
+    ```bash
+    # entrar na pasta do frontend
+    cd frontend
+    # instalar dependencias
+    npm install
+    #executar o app
+    npm run serve
+    ```
+
+8. Acessar o ranking [ranking-px-web](http://localhost:4000)
