@@ -108,7 +108,7 @@ const TripCurrent = () => {
             <RotaText>Origem: São Paulo-SP</RotaText>
             <RotaText>Destino: Curitiba-SP</RotaText>
           </Rota>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Tempo de Viagem</CardTitle>
             </CardHeader>
@@ -118,7 +118,7 @@ const TripCurrent = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Parada recomendada em</CardTitle>
             </CardHeader>
@@ -128,7 +128,7 @@ const TripCurrent = () => {
               </CardColumn>
             </CardHeader>
           </Card>
-          <Card>
+          <Card style={styles.shadow}>
             <CardHeader>
               <CardTitle>Jornada máxima Restante</CardTitle>
             </CardHeader>
@@ -211,6 +211,17 @@ const styles = StyleSheet.create({
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762"
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   }
 });
 
