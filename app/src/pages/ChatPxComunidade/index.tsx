@@ -10,11 +10,12 @@ import {
   Alert,
   TouchableOpacity,
   Modal,
-  TouchableHighlight,
+  TouchableHighlight
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { Feather as IconF } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { Divider } from 'react-native-elements';
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -33,7 +34,7 @@ import {
   ModalButtons,
   BackChat,
   ChatInput,
-  ChatInputSend,
+  ChatInputSend
 } from "./styles";
 import Constants from "expo-constants";
 
@@ -60,11 +61,11 @@ const ChatPxComunidade = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().required("Name is required"),
-          password: Yup.string().min(6, "Password must have at least 6 digits"),
+          password: Yup.string().min(6, "Password must have at least 6 digits")
         });
 
         await schema.validate(data, {
-          abortEarly: false,
+          abortEarly: false
         });
 
         //	await api.post('users', data);
@@ -112,10 +113,16 @@ const ChatPxComunidade = () => {
             <Title>São Paulo News #20392</Title>
             <Text></Text>
           </View>
-          <BodyText>Moderador: Trucão #10</BodyText>
-          <TouchableOpacity onPress={handleNavigateComunidade}>
-          <BodyText>Rankin da comunidade</BodyText>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={handleNavigateComunidade}>
+              <IconF name="search" size={24} color="#000" />
             </TouchableOpacity>
+            <Title>Ranking da Comunidade</Title>
+            <Text></Text>
+          </View>
+          <TouchableOpacity
+            onPress={handleNavigateComunidade}
+          ></TouchableOpacity>
           <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
@@ -129,47 +136,7 @@ const ChatPxComunidade = () => {
           <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
+                <CardTitle>Gustavo#99283 20/06/2020 14:55</CardTitle>
               </CardColumn>
             </CardHeader>
             <CardHeader>
@@ -207,13 +174,13 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     justifyContent: "center",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
   itemsContainer: {
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    backgroundColor: "#fbd762",
+    backgroundColor: "#fbd762"
   },
   header: {
     flex: 1,
@@ -221,30 +188,30 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     justifyContent: "space-between",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
 
   shadow: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
-    elevation: 5,
+    elevation: 5
   },
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762",
-    marginBottom: 60,
+    marginBottom: 60
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 22
   },
   modalView: {
     margin: 20,
@@ -255,17 +222,17 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 5
   },
   openButton: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -282,24 +249,24 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center"
   },
   modalText: {
     marginBottom: 15,
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 18
   },
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
     fontSize: 16,
-    color: "#fff",
-  },
+    color: "#fff"
+  }
 });
 
 export default ChatPxComunidade;

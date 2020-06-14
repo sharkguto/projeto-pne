@@ -109,10 +109,11 @@ const ChatPxComunidadeRank = () => {
             <TouchableOpacity onPress={handleNavigateBack}>
               <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
+            <Icon name="medal" size={24} style={{marginLeft:10}} color="#000"></Icon>
+            <Title>Ranking da comunidade</Title>
           </View>
           <View style={styles.header}>
-            <Icon name="medal" size={24} color="#000"></Icon>
-            <Title>Ranking da comunidade</Title>
+
             <Text></Text>
           </View>
           <View style={styles.margimView}></View>
