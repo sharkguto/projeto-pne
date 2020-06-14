@@ -3,7 +3,7 @@
 <section class="hero ccr-vermelho">
   <div class="hero-body">
     <div class="container">
-      <img alt="Vue logo" src="../assets/logo.png">
+      <img alt="Vue logo" style="width:300px; max-height:100px;" src="../assets/logo.png">
       <h1 class="title ccr-vermelho">
         {{ title }}
       </h1>
@@ -13,10 +13,11 @@
     </div>
   </div>
 </section>
-<section>
+<section class="divRank">
   <div class="container" v-if="listRankingPx">
-    <div class="">
-      <b-table
+    <div class="columns is-centered" >
+       <div class="column  is-8-widescreen">
+          <b-table
           @dbclick="moreDetails"
           :data="listRankingPx"
           :columns="columns"
@@ -25,6 +26,8 @@
           :selected.sync="selected"
           per-page="20">
       </b-table>
+       </div>
+     
     </div>
   </div>
 </section>
@@ -90,7 +93,6 @@ export default {
           field: 'nickname',
           label: 'Apelido',
           centered: true,
-          searchable: true,
         },
         {
           field: 'name',
@@ -111,10 +113,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.divRank {
+  background-color: #f5a623;
+  padding-top: 30px;
+  min-height: 500px;
+}
 .ccr-vermelho {
   background-color: #CF2A27;
   color: white;
+  margin-top:20px;
 }
+
+.pagination-link.is-current {
+    background-color: #CF2A27!important;
+    border-color: #CF2A27!important;
+    color: white;
+}
+
 h3 {
   margin: 40px 0 0;
 }
