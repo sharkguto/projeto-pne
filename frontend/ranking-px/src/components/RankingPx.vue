@@ -1,11 +1,32 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <div class="columns is-mobile">
-      <div class="column">
-      {{this.listRankingPx}}</div>
+<div>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <img alt="Vue logo" src="../assets/logo.png">
+      <h1 class="title">
+        {{ title }}
+      </h1>
+      <h2 class="subtitle">
+        {{subTitle}}
+      </h2>
+    </div>
+    <div class="hello">
+
+  </div>
+  </div>
+</section>
+<section>
+  <div class="columns is-mobile" v-if="listRankingPx">
+    <div class="column">
+      <b-table
+          :data="listRankingPx"
+          :columns="columns">
+      </b-table>
     </div>
   </div>
+</section>
+</div>
 </template>
 
 <script>
@@ -14,7 +35,8 @@ import axios from 'axios';
 export default {
   name: 'RankingPx',
   props: {
-    msg: String,
+    title: String,
+    subTitle: String,
   },
   created() {
     axios
@@ -35,6 +57,34 @@ export default {
   data() {
     return {
       listRankingPx: null,
+      columns: [
+        {
+          field: 'position',
+          label: 'Posição',
+          width: '40',
+          numeric: true,
+          sortable: true,
+        },
+        {
+          field: 'points',
+          label: 'Pontos',
+          width: '40',
+          numeric: true,
+        },
+        {
+          field: 'nickname',
+          label: 'Apelido',
+        },
+        {
+          field: 'name',
+          label: 'Nome',
+        },
+        // {
+        //   field: 'lastActiveDate',
+        //   label: 'Date',
+        //   centered: true,
+        // },
+      ],
     };
   },
 };
