@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 12.2 (Ubuntu 12.2-4)
 
--- Started on 2020-06-14 12:10:49 -03
+-- Started on 2020-06-14 14:50:56 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -629,9 +629,9 @@ INSERT INTO public.tbl_truck OVERRIDING SYSTEM VALUE VALUES (2, 'camarotruck', '
 -- Data for Name: tbl_user; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
-INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (1, 'ze gustavo', '402.224.678-77', 'ze gustavo', '$2a$06$KpRAhjG5OjkoCToBvvsITuR2.je2PFiUtG3hb8LMcw/4djQHe6Z2u', '2020-06-13 03:02:43.784789+00', '2020-06-13', '+5519981398972');
-INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (2, 'ze feber', '402.224.678-55', 'ze feber', '$2a$06$vPr8Fw6WrcEyNpdu6PbTbePZY/XHtcKDaij1rM0Ug7ZDiSZn8uyU6', '2020-06-13 03:41:02.908944+00', '2020-06-13', '+551233398972');
-INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'ze italo', '402.224.678-55', 'ze italo', '$2a$06$aOoqRggnHEyIldwR9EY0TOgTgXTRD3hON/V.zEFa/eTOXXueoBRxe', '2020-06-13 04:16:57.757817+00', '2020-06-13', '+551233398972');
+INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (1, 'Gustavo Freitas', '402.224.678-77', 'gustavo', '$2a$06$KpRAhjG5OjkoCToBvvsITuR2.je2PFiUtG3hb8LMcw/4djQHe6Z2u', '2020-06-13 03:02:43.784789+00', '2020-06-13', '+5519981398972');
+INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (2, 'Felipe Feber', '402.224.678-55', 'feber', '$2a$06$vPr8Fw6WrcEyNpdu6PbTbePZY/XHtcKDaij1rM0Ug7ZDiSZn8uyU6', '2020-06-13 03:41:02.908944+00', '2020-06-13', '+551233398972');
+INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'Italo Cassio', '402.224.678-55', 'italo', '$2a$06$aOoqRggnHEyIldwR9EY0TOgTgXTRD3hON/V.zEFa/eTOXXueoBRxe', '2020-06-13 04:16:57.757817+00', '2020-06-13', '+551233398972');
 
 
 --
@@ -640,7 +640,7 @@ INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'ze italo', '402.
 -- Name: ranking_px_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
 
-SELECT pg_catalog.setval('public.ranking_px_id_seq', 6, true);
+SELECT pg_catalog.setval('public.ranking_px_id_seq', 36, true);
 
 
 --
@@ -947,7 +947,7 @@ ALTER TABLE ONLY public.tbl_truck
     ADD CONSTRAINT tbl_truck_fk FOREIGN KEY (id_user) REFERENCES public.tbl_user(id);
 
 
--- Completed on 2020-06-14 12:10:49 -03
+-- Completed on 2020-06-14 14:50:56 -03
 
 --
 -- PostgreSQL database dump complete
