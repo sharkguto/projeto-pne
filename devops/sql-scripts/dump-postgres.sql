@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 12.2 (Ubuntu 12.2-4)
 
--- Started on 2020-06-13 19:40:01 -03
+-- Started on 2020-06-14 12:10:49 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -588,6 +588,9 @@ INSERT INTO public.tbl_point_stop_review OVERRIDING SYSTEM VALUE VALUES (44, 2, 
 
 INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (1, 2, 'alongamento', 1, NULL, '2020-06-13 14:09:37.800555+00');
 INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (3, 10, 'parada', 1, 1, '2020-06-13 14:09:37.800555+00');
+INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (4, 7, 'alongamento', 2, NULL, '2020-06-14 15:10:20.990239+00');
+INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (5, 5, 'parada', 2, NULL, '2020-06-14 15:10:20.995761+00');
+INSERT INTO public.tbl_ranking_px OVERRIDING SYSTEM VALUE VALUES (6, 10, 'saude', 3, NULL, '2020-06-14 15:10:20.998421+00');
 
 
 --
@@ -606,8 +609,8 @@ INSERT INTO public.tbl_trip OVERRIDING SYSTEM VALUE VALUES (1, 1, '2020-06-12 14
 -- Data for Name: tbl_trip_stop; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
-INSERT INTO public.tbl_trip_stop OVERRIDING SYSTEM VALUE VALUES (2, '2020-06-13 22:32:50.239566+00', '2020-06-13 23:32:50+00', 2, 1);
 INSERT INTO public.tbl_trip_stop OVERRIDING SYSTEM VALUE VALUES (1, '2020-06-13 00:31:51+00', '2020-06-13 12:11:01+00', 1, 1);
+INSERT INTO public.tbl_trip_stop OVERRIDING SYSTEM VALUE VALUES (2, '2020-06-13 22:32:50.239566+00', '2020-06-13 23:32:50+00', 2, NULL);
 
 
 --
@@ -637,7 +640,7 @@ INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'ze italo', '402.
 -- Name: ranking_px_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pne
 --
 
-SELECT pg_catalog.setval('public.ranking_px_id_seq', 3, true);
+SELECT pg_catalog.setval('public.ranking_px_id_seq', 6, true);
 
 
 --
@@ -944,7 +947,7 @@ ALTER TABLE ONLY public.tbl_truck
     ADD CONSTRAINT tbl_truck_fk FOREIGN KEY (id_user) REFERENCES public.tbl_user(id);
 
 
--- Completed on 2020-06-13 19:40:01 -03
+-- Completed on 2020-06-14 12:10:49 -03
 
 --
 -- PostgreSQL database dump complete
