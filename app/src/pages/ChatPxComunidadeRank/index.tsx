@@ -47,7 +47,7 @@ interface Search {
   search: string;
 }
 
-const ChatPxComunidade = () => {
+const ChatPxComunidadeRank = () => {
   const navigation = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -92,8 +92,8 @@ const ChatPxComunidade = () => {
   function handleNavigateNewVehicle() {
     navigation.navigate("VehicleNew");
   }
-  function handleNavigateComunidade() {
-    navigation.navigate("ChatPxComunidadeRank");
+  function handleNavigateVehicleDetail() {
+    navigation.navigate("VehicleNew");
   }
 
   function handleNavigateBack() {
@@ -109,93 +109,42 @@ const ChatPxComunidade = () => {
             <TouchableOpacity onPress={handleNavigateBack}>
               <IconF name="arrow-left" size={48} color="#000" />
             </TouchableOpacity>
-            <Title>São Paulo News #20392</Title>
+            <Title>Ranking da comunidade</Title>
             <Text></Text>
           </View>
-          <BodyText>Moderador: Trucão #10</BodyText>
-          <TouchableOpacity onPress={handleNavigateComunidade}>
-          <BodyText>Rankin da comunidade</BodyText>
-            </TouchableOpacity>
+          <View style={styles.margimView}></View>
           <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
-                <CardTitle>Trucão#10 20/06/2020 14:38</CardTitle>
+                <CardTitle>1 - Pedro Alves</CardTitle>
               </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Boa tarde Pessoal!</CardText>
+              <CardColumn>
+              <CardText>900 PX</CardText>
+              </CardColumn>
             </CardHeader>
           </Card>
           <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
+                <CardTitle>2 - Mario Silva</CardTitle>
               </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
+              <CardColumn>
+              <CardText>840 PX</CardText>
+              </CardColumn>
             </CardHeader>
           </Card>
           <Card style={styles.shadow}>
             <CardHeader>
               <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
+                <CardTitle>3 - Luiz Pereira</CardTitle>
               </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
               <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
+              <CardText>750 PX</CardText>
               </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
-            </CardHeader>
-          </Card>
-          <Card style={styles.shadow}>
-            <CardHeader>
-              <CardColumn>
-                <CardTitle>Gustavo#n/a 20/06/2020 14:38</CardTitle>
-              </CardColumn>
-            </CardHeader>
-            <CardHeader>
-              <CardText>Opa! tudo certo por ai?</CardText>
             </CardHeader>
           </Card>
         </Container>
       </ScrollView>
-      <BackChat>
-        <Form ref={formRef} onSubmit={handleSignUp}>
-          <ChatInput>
-            <Input
-              name="msg"
-              placeholder="Digite uma mensagem"
-              returnKeyType="send"
-              icon="message-circle"
-            />
-          </ChatInput>
-
-          <ChatInputSend>
-            <TouchableOpacity onPress={handleNavigateBack}>
-              <IconF name="send" size={40} color="#fff" />
-            </TouchableOpacity>
-          </ChatInputSend>
-        </Form>
-      </BackChat>
     </>
   );
 };
@@ -238,7 +187,6 @@ const styles = StyleSheet.create({
   viewSize: {
     height: "100%",
     backgroundColor: "#fbd762",
-    marginBottom: 60,
   },
   centeredView: {
     flex: 1,
@@ -300,6 +248,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#fff",
   },
+  margimView: {
+    marginTop:15,
+  }
 });
 
-export default ChatPxComunidade;
+export default ChatPxComunidadeRank;
