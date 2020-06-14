@@ -90,6 +90,8 @@ const VehicleNew = () => {
       <Logo></Logo>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled>
         <ScrollView
+
+        style={styles.viewSize}
         >
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
@@ -160,6 +162,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     backgroundColor: "#fbd762"
+  },
+  viewSize:{
+    height:'100%',
+    backgroundColor: "#fbd762",
   },
 });
 

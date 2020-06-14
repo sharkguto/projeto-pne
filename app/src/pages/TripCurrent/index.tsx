@@ -142,7 +142,7 @@ const TripCurrent = () => {
           <BotaoContainer>
             <TouchableOpacity
               style={styles.item}
-              onPress={() => handleSelectItem(1)}
+              // onPress={() => handleSelectItem(1)}
               activeOpacity={0.6}
             >
               <Icon name="map-pin" size={26} color="#fff" />
@@ -150,7 +150,7 @@ const TripCurrent = () => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.item}
-              onPress={() => handleSelectItem(2)}
+              // onPress={() => handleSelectItem(2)}
               activeOpacity={0.6}
             >
               <Icon name="x-square" size={26} color="#fff" />

@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import { FontAwesome5 as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -30,27 +30,26 @@ import {
 import Constants from "expo-constants";
 import { CardTitle } from "../Detail/styles";
 
-
 const Vehicle = () => {
-
   const navigation = useNavigation();
 
-  function handleNavigateNewVehicle () {
-    navigation.navigate("VehicleNew");
-
-  }
-  function handleNavigateVehicleDetail () {
+  function handleNavigateNewVehicle() {
     navigation.navigate("VehicleNew");
   }
+  function handleNavigateVehicleDetail() {
+    navigation.navigate("VehicleNew");
+  }
 
-  function handleNavigateBack () {
+  function handleNavigateBack() {
     navigation.goBack();
   }
 
   return (
     <>
       <Logo></Logo>
-      <ScrollView>
+      <ScrollView
+      style={styles.viewSize}
+      >
         <Container>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleNavigateBack}>
@@ -67,7 +66,7 @@ const Vehicle = () => {
               </CardColumn>
               <CardColumn>
                 <TouchableOpacity onPress={handleNavigateVehicleDetail}>
-                   <Icon name="edit" size={20} color="#000" />
+                  <Icon name="edit" size={20} color="#000" />
                 </TouchableOpacity>
               </CardColumn>
             </CardHeader>
@@ -80,8 +79,8 @@ const Vehicle = () => {
               <CardColumn>
                 <CardText>Licenciamento: 12/2019</CardText>
               </CardColumn>
-              <CardColumn>                
-                   <Icon name="check" size={20} color="#019533" />
+              <CardColumn>
+                <Icon name="check" size={20} color="#019533" />
               </CardColumn>
             </CardHeader>
           </Card>
@@ -92,7 +91,7 @@ const Vehicle = () => {
               </CardColumn>
               <CardColumn>
                 <TouchableOpacity onPress={handleNavigateVehicleDetail}>
-                   <Icon name="edit" size={20} color="#000" />
+                  <Icon name="edit" size={20} color="#000" />
                 </TouchableOpacity>
               </CardColumn>
             </CardHeader>
@@ -105,8 +104,8 @@ const Vehicle = () => {
               <CardColumn>
                 <CardText>Licenciamento: 12/2019</CardText>
               </CardColumn>
-              <CardColumn>                
-                   <Icon name="check" size={20} color="#019533" />
+              <CardColumn>
+                <Icon name="check" size={20} color="#019533" />
               </CardColumn>
             </CardHeader>
           </Card>
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
   itemsContainer: {
     flexDirection: "row",
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 16
   },
 
   item: {
@@ -156,12 +155,17 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center",
+    textAlign: "center"
   },
 
   selectedItem: {
     borderColor: "#34CB79",
-    borderWidth: 2,
+    borderWidth: 2
+  },
+
+  viewSize: {
+    height: "100%",
+    backgroundColor: "#fbd762"
   },
 
   itemTitle: {
@@ -169,8 +173,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 19,
     color: "#fff"
-  },
+  }
 });
-
 
 export default Vehicle;
