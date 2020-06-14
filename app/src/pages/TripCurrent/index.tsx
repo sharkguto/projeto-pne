@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -27,7 +27,7 @@ import {
   CardTitle,
   CardTime,
   Rota,
-  BotaoContainer
+  BotaoContainer,
 } from "./styles";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -49,6 +49,8 @@ const TripCurrent = () => {
 
   const formRef = useRef<FormHandles>(null);
 
+  let [parada, setParada] = useState<boolean>(false);
+
   const navigation = useNavigation();
 
   const finishTrip = () =>
@@ -59,31 +61,31 @@ const TripCurrent = () => {
         {
           text: "Não",
           onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
+          style: "cancel",
         },
-        { text: "Sim", onPress: () => finishTripSuccess()}
+        { text: "Sim", onPress: () => finishTripSuccess() },
       ],
       { cancelable: false }
     );
 
-    const finishTripSuccess = () =>
+  const finishTripSuccess = () =>
     Alert.alert(
       "Parabéns!",
       "Viagem concluída com sucesso!",
-      [
-        { text: "Sim", onPress: () => handleNavigateBack()}
-      ],
+      [{ text: "Sim", onPress: () => handleNavigateBack() }],
       { cancelable: false }
     );
 
   function handleTripFinishStop() {
+    setParada(false);
     navigation.navigate("TripFinishStop");
   }
 
   function handleTripStartStop() {
+    setParada(true);
     navigation.navigate("TripStartStop");
   }
-  
+
   function handleNavigateBack() {
     navigation.goBack();
   }
@@ -136,22 +138,28 @@ const TripCurrent = () => {
           </Card>
 
           <BotaoContainer>
-            <TouchableOpacity
-              style={styles.item}
-              onPress={() => handleTripStartStop()}
-              activeOpacity={0.6}
-            >
-              <Icon name="map-pin" size={40} color="#fff" />
-              <Text style={styles.itemTitle}>Iniciar Parada</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.item}
-              onPress={() => handleTripFinishStop()}
-              activeOpacity={0.6}
-            >
-              <Icon name="map-pin" size={26} color="#fff" />
-              <Text style={styles.itemTitle}>Encerrar Parada</Text>
-            </TouchableOpacity>
+            {!parada && (
+              <TouchableOpacity
+                style={styles.item}
+                onPress={() => handleTripStartStop()}
+                activeOpacity={0.6}
+              >
+                <Icon name="map-pin" size={40} color="#fff" />
+                <Text style={styles.itemTitle}>Iniciar Parada</Text>
+              </TouchableOpacity>
+            )}
+
+            {parada && (
+              <TouchableOpacity
+                style={styles.item}
+                onPress={() => handleTripFinishStop()}
+                activeOpacity={0.6}
+              >
+                <Icon name="map-pin" size={26} color="#fff" />
+                <Text style={styles.itemTitle}>Encerrar Parada</Text>
+              </TouchableOpacity>
+            )}
+
             <TouchableOpacity
               style={styles.item}
               onPress={finishTrip}
@@ -174,20 +182,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     display: "flex",
-    backgroundColor: "#fbd762"
+    backgroundColor: "#fbd762",
   },
   itemsContainer: {
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    backgroundColor: "#fbd762"
+    backgroundColor: "#fbd762",
   },
 
   item: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -195,39 +203,39 @@ const styles = StyleSheet.create({
     backgroundColor: "#CF2A27",
     borderWidth: 2,
     borderColor: "#CF2A27",
-    height: 90,
-    width: 95,
+    height: 110,
+    width: 150,
     borderRadius: 1,
     paddingHorizontal: 8,
     paddingTop: 16,
     paddingBottom: 16,
     marginRight: 8,
-    marginLeft:8,
+    marginLeft: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    textAlign: "center"
+    textAlign: "center",
   },
   itemTitle: {
     fontFamily: "Roboto_400Regular",
     textAlign: "center",
     fontSize: 18,
-    color: "#fff"
+    color: "#fff",
   },
   viewSize: {
     height: "100%",
-    backgroundColor: "#fbd762"
+    backgroundColor: "#fbd762",
   },
   shadow: {
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
-    elevation: 5
-  }
+    elevation: 5,
+  },
 });
 
 export default TripCurrent;
