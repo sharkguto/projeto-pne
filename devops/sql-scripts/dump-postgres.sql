@@ -629,7 +629,7 @@ INSERT INTO public.tbl_truck OVERRIDING SYSTEM VALUE VALUES (2, 'camarotruck', '
 -- Data for Name: tbl_user; Type: TABLE DATA; Schema: public; Owner: pne
 --
 
-INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (1, 'Gustavo Freitas', '402.224.678-77', 'gustavo', '$2a$06$KpRAhjG5OjkoCToBvvsITuR2.je2PFiUtG3hb8LMcw/4djQHe6Z2u', '2020-06-13 03:02:43.784789+00', '2020-06-13', '+5519981398972');
+INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (1, 'Gustavo Freitas', '402.224.678-77', 'gustavo', '$2a$06$KpRAhjG5OjkoCToBvvsITuR2.je2PFiUtG3hb8LMcw/4djQHe6Z2u', '2020-06-13 03:02:43.784789+00', '2020-06-13', '+551298876555');
 INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (2, 'Felipe Feber', '402.224.678-55', 'feber', '$2a$06$vPr8Fw6WrcEyNpdu6PbTbePZY/XHtcKDaij1rM0Ug7ZDiSZn8uyU6', '2020-06-13 03:41:02.908944+00', '2020-06-13', '+551233398972');
 INSERT INTO public.tbl_user OVERRIDING SYSTEM VALUE VALUES (3, 'Italo Cassio', '402.224.678-55', 'italo', '$2a$06$aOoqRggnHEyIldwR9EY0TOgTgXTRD3hON/V.zEFa/eTOXXueoBRxe', '2020-06-13 04:16:57.757817+00', '2020-06-13', '+551233398972');
 
