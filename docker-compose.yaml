@@ -1,6 +1,14 @@
 version: '3'
  
 services:
+  frontend:
+    build:
+      context: .
+      dockerfile: devops/front.dockerfile
+    ports: 
+      - 4000:80
+    links:
+      - backend-pne
   backend-pne:
     build:
       context: .
