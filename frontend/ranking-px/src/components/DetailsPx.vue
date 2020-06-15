@@ -3,7 +3,7 @@
 <section class="hero ccr-vermelho">
   <div class="hero-body">
     <div class="container">
-      <img alt="Vue logo" src="../assets/logo.png">
+      <img alt="Vue logo" style="width:300px; max-height:100px;" src="../assets/logo.png">
       <h1 class="title ccr-vermelho">
         {{ title }}
       </h1>
@@ -13,42 +13,34 @@
     </div>
   </div>
 </section>
-<section>
+<section class="divRank">
   <div class="container" v-if="listRankingPx">
 
-    <div class="card">
-  <!-- <div class="card-image">
-    <figure class="image is-128x128">
-      <img src="../assets/caminhao.png" alt="Placeholder image">
-    </figure>
-  </div> -->
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="../assets/caminhao.png" alt="caminhao">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">{{listRankingPx[0].name}}</p>
-        <p class="subtitle is-6">@{{listRankingPx[0].nickname}}</p>
+ <div class="columns is-centered" >
+       <div class="column is-8-widescreen">
+          <div class="content">
+        <img style="border-radius:45%" class="perfil" src="../assets/caminhao.png" alt="caminhao">
+       <div>
+         <br>
+        <p class="title is-1">{{listRankingPx[0].name}}</p>
+        <p class="subtitle is-4">@{{listRankingPx[0].nickname}}</p>
       </div>
       <div>
-        <p class="title is-4">#{{listRankingPx[0].position}}</p>
-        <p class="subtitle is-6">{{listRankingPx[0].points}} pontos</p>
+        <br>
+        <p class="title is-4">#{{listRankingPx[0].position}} - {{listRankingPx[0].points}} pontos</p>    
+        <p class="title is-5"><font-awesome-icon icon="mobile" /> {{listRankingPx[0].phone}} </p>   
+        <br>
+        <br>
       </div>
-    </div>
-
-    <div class="content">
-      <b> <font-awesome-icon icon="mobile" /> {{listRankingPx[0].phone}}</b>
-      <br>
+      <!-- <b> <font-awesome-icon icon="mobile" /> {{listRankingPx[0].phone}}</b> -->
+      <!-- <br>
       <br>
       Data da última pontuação
       <br>
-    <time :datetime="listRankingPx[0].lastActiveDate">{{listRankingPx[0].lastActiveDate}}</time>
+    <time :datetime="listRankingPx[0].lastActiveDate">{{listRankingPx[0].lastActiveDate}}</time> -->
     </div>
   </div>
-</div>
+  </div>
 
     <!-- <div v-for="(item, index) in listRankingPx[0]" :key="index">
     {{ index }} - {{ item }}
@@ -68,8 +60,12 @@ export default {
     subTitle: String,
   },
   created() {
+    let url = 'http://localhost:8080/ranking-px/list';
+    if (process.env.NODE_ENV === 'production') {
+      url = 'http://localhost:8080/ranking-px/list';
+    }
     axios
-      .get('http://localhost:8080/ranking-px/list', {
+      .get(url, {
         headers: { 'x-api-key': 'token-auth-here' },
         params: { nickname: this.$route.query.nickname },
       })
@@ -94,6 +90,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.divRank {
+  background-color: #f5a623;
+  padding-top: 30px;
+  min-height: 500px;
+}
 
 .ccr-vermelho {
   background-color: #CF2A27;
@@ -112,5 +113,14 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.perfil {
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 10px 20px -8px;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 3px;
+    border-color: white;
+   
 }
 </style>
