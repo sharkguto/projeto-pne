@@ -81,7 +81,7 @@ const SingUp = () => {
   );
 
   function goNavigatePoints () {
-    navigation.navigate("Points");
+    navigation.navigate("DashBoard");
   }
   function handleNavigateBack () {
     navigation.goBack();
@@ -105,7 +105,7 @@ const SingUp = () => {
 
             
 
-            <Form ref={formRef} onSubmit={handleSignUp}>
+            <Form ref={formRef} onSubmit={goNavigatePoints}>
               <Input
                 autoCapitalize="words"
                 keyboardType="default"
